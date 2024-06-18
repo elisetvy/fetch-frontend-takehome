@@ -27,12 +27,11 @@ function Dogs() {
   return (
     <div className="mt-10">
       {loading === false && (
-        <>
-          <p className="mt-10 text-3xl">here some dogs</p>
+        <div className="grid grid-cols-3 gap-10">
           {dogs.map((d: DogType) => {
             return <Dog dog={d} />;
           })}
-        </>
+        </div>
       )}
     </div>
   );
