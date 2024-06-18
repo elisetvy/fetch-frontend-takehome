@@ -24,27 +24,43 @@ function Auth() {
   }
 
   return (
-    <form className="flex flex-col items-center w-1/4">
-      <label htmlFor="name">Name:</label>
-      <input
-        name="name"
-        className="bg-blue-100 px-2 py-1 w-full"
-        required
-        value={userData.name}
-        onChange={handleChange}
-        type="text"
-      ></input>
-      <label htmlFor="email" className="mt-2">Email:</label>
-      <input
-        name="email"
-        className="bg-blue-100 px-2 py-1 w-full"
-        required
-        value={userData.email}
-        onChange={handleChange}
-        type="text"
-      ></input>
-      <button onClick={handleSubmit} className="bg-blue-600 rounded px-6 py-2 w-fit mt-4 text-white font-bold">Submit</button>
-    </form>
+    <div className="pt-20 text-center">
+      <h1 className="text-2xl font-bold pb-6">LET'S GET STARTED</h1>
+      <form className="Lexend flex flex-col items-center min-w-1/3">
+        <div className="grid grid-cols-6 gap-2 w-full pb-4">
+          <label htmlFor="name" className="">
+            Name:
+          </label>
+          <input
+            name="name"
+            className="col-span-5 bg-blue-100 px-2 py-1 w-full"
+            required
+            value={userData.name}
+            onChange={handleChange}
+            type="text"
+          ></input>
+        </div>
+        <div className="grid grid-cols-6 gap-2 w-full">
+          <label htmlFor="email" className="mt-2">
+            Email:
+          </label>
+          <input
+            name="email"
+            className="col-span-5 bg-blue-100 px-2 py-1 w-full"
+            required
+            value={userData.email}
+            onChange={handleChange}
+            type="text"
+          ></input>
+        </div>
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-600 rounded px-6 py-2 w-fit mt-4 text-white hover:opacity-85"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 
