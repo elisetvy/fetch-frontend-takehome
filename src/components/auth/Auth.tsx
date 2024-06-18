@@ -23,8 +23,12 @@ function Auth() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await Api.login(userData);
-    navigate("/dogs");
+    try {
+      await Api.login(userData);
+      navigate("/dogs");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
