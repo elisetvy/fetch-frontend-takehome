@@ -21,7 +21,12 @@ class Api {
     // Set to undefined since the body property cannot exist on a GET method
     const body = method !== "GET" ? JSON.stringify(data) : undefined;
 
-    const resp = await fetch(url, { method, body, headers });
+    const resp = await fetch(url, {
+      method,
+      body,
+      headers,
+      credentials: "include",
+    });
 
     // Fetch API does not throw an error, have to dig into the resp for msgs
     if (!resp.ok) {
