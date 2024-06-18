@@ -27,7 +27,7 @@ function Dogs() {
   return (
     <div className="mt-10">
       {loading === false && (
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           {dogs.map((d: DogType) => {
             return <Dog dog={d} />;
           })}
