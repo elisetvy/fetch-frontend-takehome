@@ -1,49 +1,49 @@
 const BASE_API_URL = "https://frontend-take-home-service.fetch.com";
 
 type UserData = {
-    name: string,
-    email: string
-}
+  name: string;
+  email: string;
+};
 
-class Api{
-    static token = null;
+class Api {
+  static token = null;
 
-    /** Formats requests. */
+  /** Formats requests. */
 
-    static async request(endpoint: string, data = {}, method = "GET") {
-      const url = new URL(`${BASE_API_URL}/${endpoint}`);
-      const headers = {
-        "content-type": "application/json",
-      };
+  static async request(endpoint: string, data = {}, method = "GET") {
+    const url = new URL(`${BASE_API_URL}/${endpoint}`);
+    const headers = {
+      "content-type": "application/json",
+    };
 
-      url.search = method === "GET" ? new URLSearchParams(data).toString() : "";
+    url.search = method === "GET" ? new URLSearchParams(data).toString() : "";
 
-      // Set to undefined since the body property cannot exist on a GET method
-      const body = method !== "GET" ? JSON.stringify(data) : undefined;
+    // Set to undefined since the body property cannot exist on a GET method
+    const body = method !== "GET" ? JSON.stringify(data) : undefined;
 
-      const resp = await fetch(url, { method, body, headers });
+    const resp = await fetch(url, { method, body, headers });
 
-      // Fetch API does not throw an error, have to dig into the resp for msgs
-      if (!resp.ok) {
-        console.error("API Error:", resp.statusText, resp.status);
-        const { error } = await resp.json();
-        throw Array.isArray(error) ? error : [error];
-      }
-
-      return await resp.json();
+    // Fetch API does not throw an error, have to dig into the resp for msgs
+    if (!resp.ok) {
+      console.error("API Error:", resp.statusText, resp.status);
+      const { error } = await resp.json();
+      throw Array.isArray(error) ? error : [error];
     }
 
-    static async login(userData: UserData){
-      const response = await this.request('auth/login', userData, "POST" );
-
-      return response.token;
-    }
-
-    static async getBreeds(){
-      const response = await this.request('dogs/breeds');
-
-      return response.token;
-    }
+    return await resp.json();
   }
 
-  export default Api;
+  static async login(userData: UserData) {
+    const response = await this.request("auth/login", userData, "POST");
+
+    return response.token;
+  }
+
+  static async getBreeds() {
+    const response = await this.request("dogs/breeds");
+
+    return response.token;
+  }
+}
+
+export default Api;
