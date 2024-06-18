@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
 import Api from "../api";
-import { Dog } from "../interfaces";
+import { Dog as DogType } from "../interfaces";
+import Dog from "../Dog/Dog";
 
 function Dogs() {
   const [dogs, setDogs] = useState([]);
@@ -28,11 +29,9 @@ function Dogs() {
       {loading === false && (
         <>
           <p className="mt-10 text-3xl">here some dogs</p>
-          <ul>
-            {dogs.map((dog: Dog) => {
-              return <li>{dog.name}</li>;
-            })}
-          </ul>
+          {dogs.map((d: DogType) => {
+            return <Dog dog={d} />;
+          })}
         </>
       )}
     </div>
