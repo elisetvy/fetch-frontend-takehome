@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Api from "../api";
 
@@ -16,11 +17,14 @@ function Auth() {
     setUserData((prev) => ({ ...prev, [name]: value }));
   }
 
+  const navigate = useNavigate();
+
   /** Call login function with user data. */
   async function handleSubmit(e) {
     e.preventDefault();
 
     await Api.login(userData);
+    navigate("/dogs");
   }
 
   return (
