@@ -5,6 +5,8 @@ type UserData = {
   email: string;
 };
 
+type IDs = string[];
+
 class Api {
   static token = null;
 
@@ -46,10 +48,33 @@ class Api {
 
   /** Returns array of possible breed names. */
 
-  static async getDogs() {
+  static async getBreeds() {
     const response = await this.request("dogs/breeds");
 
-    return response;
+    return response.json();
+  }
+
+  /** Returns an object with the following properties:
+
+resultIds - an array of dog IDs matching your query
+total - the total number of results for the query (not just the current page)
+next - a query to request the next page of results (if one exists)
+prev - a query to request the previous page of results (if one exists)
+
+The maximum total number of dogs that will be matched by a single query is 10,000. */
+
+  static async searchDogs() {
+    const response = await this.request("dogs/search");
+
+    return response.json();
+  }
+
+/** Returns array of dog objects. */
+
+  static async fetchDogs(ids: IDs) {
+    const response = await this.request("dogs", ids, "POST");
+
+    return response.json();
   }
 }
 
