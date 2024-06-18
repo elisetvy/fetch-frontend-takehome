@@ -35,19 +35,21 @@ class Api {
       throw Array.isArray(error) ? error : [error];
     }
 
-    return await resp.json();
+    return await resp;
   }
 
   static async login(userData: UserData) {
     const response = await this.request("auth/login", userData, "POST");
 
-    return response.token;
+    return response;
   }
 
-  static async getBreeds() {
+  /** Returns array of possible breed names. */
+
+  static async getDogs() {
     const response = await this.request("dogs/breeds");
 
-    return response.token;
+    return response;
   }
 }
 
