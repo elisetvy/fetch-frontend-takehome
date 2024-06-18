@@ -50,7 +50,7 @@ function Auth() {
             required
             value={userData.email}
             onChange={handleChange}
-            type="text"
+            type="email"
           ></input>
         </div>
         <button
