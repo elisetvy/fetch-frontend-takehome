@@ -40,6 +40,7 @@ function Auth() {
             Name:
           </label>
           <input
+            id="name"
             name="name"
             className="col-span-5 bg-blue-100 px-2 py-1 w-full"
             required
@@ -53,6 +54,7 @@ function Auth() {
             Email:
           </label>
           <input
+            id="email"
             name="email"
             className="col-span-5 bg-blue-100 px-2 py-1 w-full"
             required
