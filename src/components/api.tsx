@@ -58,7 +58,7 @@ prev - a query to request the previous page of results (if one exists)
 
 The maximum total number of dogs that will be matched by a single query is 10,000. */
 
-  static async searchDogs(queryParams:QueryParams = {}) {
+  static async searchDogs(queryParams:QueryParams = { size: 24 }) {
     const response = await this.request("dogs/search", queryParams);
 
     return response.json();
