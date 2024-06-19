@@ -25,14 +25,10 @@ function Auth({ setCurrUser }: AuthProps) {
     e.preventDefault();
 
     try {
-      const resp = await Api.login(userData);
+      await Api.login(userData);
 
-      if (resp.ok) {
-        sessionStorage.setItem("user", userData.name);
-        setCurrUser(userData.name);
-      }
-
-      navigate("/dogs");
+      sessionStorage.setItem("user", userData.name);
+      setCurrUser(userData.name);
     } catch (err) {
       console.log(err);
     }
