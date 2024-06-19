@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { AuthProps } from "../interfaces";
 import Api from "../api";
 
 function Auth({ setCurrUser }: AuthProps) {
