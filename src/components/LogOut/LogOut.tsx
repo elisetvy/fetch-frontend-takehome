@@ -7,12 +7,10 @@ function LogOut({ setCurrUser }: AuthProps) {
     e.preventDefault();
 
     try {
-      const resp = await Api.logout();
+      await Api.logout();
 
-      if (resp.ok) {
-        sessionStorage.clear();
-        setCurrUser("");
-      }
+      sessionStorage.clear();
+      setCurrUser("");
     } catch (err) {
       console.log(err);
     }
