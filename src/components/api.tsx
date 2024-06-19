@@ -1,4 +1,4 @@
-import { UserData, IDs } from "./interfaces";
+import { UserData, IDs, QueryParams } from "./interfaces";
 
 const BASE_API_URL = "https://frontend-take-home-service.fetch.com";
 
@@ -58,8 +58,8 @@ prev - a query to request the previous page of results (if one exists)
 
 The maximum total number of dogs that will be matched by a single query is 10,000. */
 
-  static async searchDogs() {
-    const response = await this.request("dogs/search");
+  static async searchDogs(queryParams:QueryParams = {}) {
+    const response = await this.request("dogs/search", queryParams);
 
     return response.json();
   }
