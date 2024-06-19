@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { AuthProps } from "../interfaces";
 import Api from "../api";
@@ -17,8 +16,6 @@ function Auth({ setCurrUser }: AuthProps) {
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   }
-
-  const navigate = useNavigate();
 
   /** Call login function with user data. */
   async function handleSubmit(e) {
