@@ -22,6 +22,11 @@ function Dog({ dog }: DogProps) {
         </div>
         <p className="Lexend mt-2">Age: {dog.age} </p>
         <p className="Lexend">Location: {dog.zip_code}</p>
+        <div className="flex justify-center">
+          <button className="Lexend w-full mt-4 bg-rose-400 px-4 py-2 rounded-xl font-bold hover:bg-rose-600">
+            Favorite {dog.name}
+          </button>
+        </div>
       </div>
     </div>
   );
