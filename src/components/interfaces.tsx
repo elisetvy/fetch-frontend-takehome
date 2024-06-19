@@ -14,7 +14,7 @@ export interface Dog {
   breed: string;
 }
 
-export interface SearchParams {
+export interface QueryParams {
   breeds?: string[];
   zipCodes?: number[];
   ageMin?: number;
