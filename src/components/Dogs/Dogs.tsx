@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 
-import Api from "../api";
-import { Dog as DogType } from "../interfaces";
 import Dog from "../Dog/Dog";
+import Search from "../Search/Search";
+
+import { Dog as DogType } from "../interfaces";
+import Api from "../api";
 
 function Dogs() {
   const [dogs, setDogs] = useState([]);
@@ -26,8 +28,9 @@ function Dogs() {
 
   return (
     <div className="mt-10">
+      <Search />
       {loading === false && (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
           {dogs.map((d: DogType) => {
             return <Dog dog={d} />;
           })}
