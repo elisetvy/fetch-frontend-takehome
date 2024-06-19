@@ -14,7 +14,10 @@ function Pagination({
   const totalPages = Math.ceil(totalDogs / dogsPerPage);
   const buttonsPerPage = 5;
   const startingPage =
-    Math.floor(currentPage / buttonsPerPage) * buttonsPerPage;
+    currentPage % buttonsPerPage === 0
+      ? Math.floor(currentPage / buttonsPerPage) * buttonsPerPage -
+        buttonsPerPage
+      : Math.floor(currentPage / buttonsPerPage) * buttonsPerPage;
   const maxPageIncremenets = Math.ceil(totalPages / buttonsPerPage) - 1;
   const lastStartingPage = maxPageIncremenets * buttonsPerPage + 1;
 
@@ -28,16 +31,23 @@ function Pagination({
     pages.push(i);
   }
 
+  console.log("CURRENT PAGE ", currentPage);
+  console.log("STARTING PAGE ", startingPage);
+
   function decrement() {
-    setCurrentPage(startingPage - buttonsPerPage);
+    console.log("STARTING PAGE=", startingPage);
+    setCurrentPage(startingPage + 1 - buttonsPerPage);
   }
 
   function increment() {
-    setCurrentPage(startingPage + buttonsPerPage);
+    setCurrentPage(startingPage + 1 + buttonsPerPage);
   }
 
+  console.log("CURRENT PAGE =", currentPage);
+  console.log("PAGES", pages);
+
   return (
-    <div className="mt-10 flex flex-wrap gap-4 justify-center border-2 border-green-400">
+    <div className="mt-10 flex flex-wrap gap-4 justify-center">
       <button
         onClick={decrement}
         className={`${
