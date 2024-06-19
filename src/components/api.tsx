@@ -46,7 +46,7 @@ class Api {
   /** Invalidate auth cookie. */
 
   static async logout() {
-    const response = await this.request("auth/logout");
+    const response = await this.request("auth/logout", {}, "POST");
 
     return response;
   }
