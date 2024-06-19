@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useState } from "react";
 
-import Auth from "./components/auth/Auth";
+import Auth from "./components/Auth/Auth";
 import Dogs from "./components/Dogs/Dogs";
 import LogOut from "./components/LogOut/LogOut";
 
