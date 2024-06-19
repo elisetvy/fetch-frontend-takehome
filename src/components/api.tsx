@@ -1,11 +1,6 @@
+import { UserData, IDs } from "./interfaces";
+
 const BASE_API_URL = "https://frontend-take-home-service.fetch.com";
-
-type UserData = {
-  name: string;
-  email: string;
-};
-
-type IDs = string[];
 
 class Api {
   static token = null;
@@ -69,7 +64,7 @@ The maximum total number of dogs that will be matched by a single query is 10,00
     return response.json();
   }
 
-/** Returns array of dog objects. */
+  /** Returns array of dog objects. */
 
   static async fetchDogs(ids: IDs) {
     const response = await this.request("dogs", ids, "POST");

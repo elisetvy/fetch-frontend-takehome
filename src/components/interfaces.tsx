@@ -1,3 +1,10 @@
+export interface UserData  {
+  name: string;
+  email: string;
+}
+
+export type IDs = string[];
+
 export interface Dog {
   id: string;
   img: string;
