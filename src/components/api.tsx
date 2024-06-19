@@ -35,8 +35,18 @@ class Api {
     return await resp;
   }
 
+  /** Log in user. */
+
   static async login(userData: UserData) {
     const response = await this.request("auth/login", userData, "POST");
+
+    return response;
+  }
+
+  /** Invalidate auth cookie. */
+
+  static async logout() {
+    const response = await this.request("auth/logout");
 
     return response;
   }
