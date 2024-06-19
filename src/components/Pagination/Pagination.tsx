@@ -20,9 +20,10 @@ function Pagination({
     pageCap = 10;
   }
 
-  for (let i = currentPage; i < currentPage + pageCap; i++) {
+  for (let i = currentPage; i < pageCap; i++) {
     pages.push(i);
   }
+  console.log(totalDogs);
 
   return (
     <div className="mt-10 flex flex-wrap gap-10 justify-center">

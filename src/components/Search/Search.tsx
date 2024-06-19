@@ -45,11 +45,13 @@ function Search() {
 
     if (name === "breeds") {
       if (value === "all") {
+        setCurrentPage(1);
         setFilters((prev) => ({
           sort: prev.sort,
           from: 0,
         }));
       } else {
+        setCurrentPage(1);
         setFilters((prev) => ({
           ...prev,
           breeds: [value],
@@ -57,6 +59,7 @@ function Search() {
         }));
       }
     } else {
+      setCurrentPage(1);
       setFilters((prev) => ({
         ...prev,
         sort: `name:${value}`,
