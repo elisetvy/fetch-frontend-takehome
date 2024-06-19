@@ -33,7 +33,7 @@ function Pagination({
             key={index}
             value={page}
             onClick={() => setCurrentPage(page)}
-            className="bg-blue-100 h-12 w-12 px-2 py-2 font-bold"
+            className="bg-blue-100 h-12 w-12 px-2 py-2 font-bold rounded-xl"
           >
             {page}
           </button>
