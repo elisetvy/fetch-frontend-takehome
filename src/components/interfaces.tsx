@@ -8,11 +8,11 @@ export interface Dog {
 }
 
 export interface SearchParams {
-  breeds: string[];
-  zipCodes: string[];
-  ageMin: number;
-  ageMax: number;
-  size: number;
-  from: string;
-  sort: string; // field:asc/desc
+  breeds?: string[];
+  zipCodes?: string[];
+  ageMin?: number;
+  ageMax?: number;
+  size?: number;
+  from?: string;
+  sort?: string; // field:asc/desc
 }
