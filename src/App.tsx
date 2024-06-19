@@ -9,6 +9,9 @@ function App() {
   const [currUser, setCurrUser] = useState(
     sessionStorage.getItem("user") || null
   );
+  const [favorites, setFavorites] = useState(
+    sessionStorage.getItem("favorites") || null
+  );
 
   return (
     <BrowserRouter>
@@ -24,7 +27,10 @@ function App() {
         {currUser && <LogOut setCurrUser={setCurrUser} />}
         <Routes>
           {currUser ? (
-            <Route path="/" element={<Dogs />}></Route>
+            <Route
+              path="/"
+              element={<Dogs setFavorites={setFavorites} />}
+            ></Route>
           ) : (
             <Route
               path="/"

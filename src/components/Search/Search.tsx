@@ -6,7 +6,7 @@ import Pagination from "../Pagination/Pagination";
 import { Dog as DogType } from "../interfaces";
 import Api from "../api";
 
-function Search() {
+function Search({ setFavorites }: (id: string) => void) {
   const [breeds, setBreeds] = useState([]);
   const [totalDogs, setTotalDogs] = useState(0);
   const [filters, setFilters] = useState({ sort: "name:asc", from: 0 });
@@ -110,7 +110,7 @@ function Search() {
       )}
       <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
         {dogs.map((d: DogType) => {
-          return <Dog dog={d} />;
+          return <Dog dog={d} setFavorites={setFavorites} />;
         })}
       </div>
       <Pagination

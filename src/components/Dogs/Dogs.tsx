@@ -6,7 +6,7 @@ import Search from "../Search/Search";
 // import { Dog as DogType } from "../interfaces";
 // import Api from "../api";
 
-function Dogs() {
+function Dogs({ setFavorites }: (id: string) => void) {
   // const [dogs, setDogs] = useState([]);
   // const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ function Dogs() {
 
   return (
     <div className="mt-10">
-      <Search />
+      <Search setFavorites={setFavorites} />
       {/* {loading === false && (
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
           {dogs.map((d: DogType) => {
