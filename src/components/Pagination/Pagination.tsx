@@ -15,13 +15,18 @@ function Pagination({
   const buttonsPerPage = 5;
   const startingPage =
     Math.floor(currentPage / buttonsPerPage) * buttonsPerPage;
-  const pages = [];
+  const maxPageIncremenets = Math.ceil(totalPages / buttonsPerPage) - 1;
+  const lastStartingPage = maxPageIncremenets * buttonsPerPage + 1;
 
-  for (let i = startingPage + 1; i <= startingPage + buttonsPerPage; i++) {
+  const pages = [];
+  const pagesToLoop =
+    startingPage + buttonsPerPage > totalPages
+      ? totalPages
+      : startingPage + buttonsPerPage;
+
+  for (let i = startingPage + 1; i <= pagesToLoop; i++) {
     pages.push(i);
   }
-  console.log("starting page = ", startingPage);
-  console.log(pages, "PAGES ARE");
 
   function decrement() {
     setCurrentPage(startingPage - buttonsPerPage);
@@ -31,24 +36,14 @@ function Pagination({
     setCurrentPage(startingPage + buttonsPerPage);
   }
 
-  // const pages = [];
-  // const totalPages = Math.ceil(totalDogs / dogsPerPage);
-
-  // let pageCap = currentPage + 5;
-
-  // if (pageCap > totalPages) {
-  //   pageCap = totalPages;
-  // }
-
-  // for (let i = currentPage; i < pageCap; i++) {
-  //   pages.push(i);
-  // }
-
   return (
     <div className="mt-10 flex flex-wrap gap-4 justify-center border-2 border-green-400">
       <button
         onClick={decrement}
-        className="bg-red-100 h-12 w-12 px-2 py-2 font-bold rounded-xl"
+        className={`${
+          startingPage === 0 ? "bg-slate-100" : "bg-red-100"
+        } h-12 w-12 px-2 py-2 font-bold rounded-xl`}
+        disabled={startingPage === 0}
       >
         ⟨
       </button>
@@ -68,7 +63,10 @@ function Pagination({
       })}
       <button
         onClick={increment}
-        className="bg-red-100 h-12 w-12 px-2 py-2 font-bold rounded-xl"
+        className={`${
+          startingPage + 1 === lastStartingPage ? "bg-slate-100" : "bg-red-100"
+        } h-12 w-12 px-2 py-2 font-bold rounded-xl`}
+        disabled={startingPage + 1 === lastStartingPage}
       >
         ⟩
       </button>
