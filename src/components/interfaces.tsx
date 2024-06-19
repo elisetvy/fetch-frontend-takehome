@@ -3,6 +3,10 @@ export interface UserData {
   email: string;
 }
 
+export interface AuthProps {
+  setCurrUser: (user: string) => void;
+}
+
 export type IDs = string[];
 
 export interface Dog {

@@ -3,10 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import Api from "../api";
 
-interface AuthProps {
-  setCurrUser: (user: string) => void;
-}
-
 function Auth({ setCurrUser }: AuthProps) {
   const initialUserData = {
     name: "",
