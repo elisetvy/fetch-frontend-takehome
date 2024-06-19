@@ -18,6 +18,13 @@ export interface Dog {
   breed: string;
 }
 
+export interface PaginationProps {
+  currentPage: number;
+  setCurrentPage: (number: number) => void;
+  totalDogs: number;
+  dogsPerPage: number;
+}
+
 export interface QueryParams {
   breeds?: string[];
   zipCodes?: number[];

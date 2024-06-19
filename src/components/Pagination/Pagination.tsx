@@ -1,9 +1,4 @@
-interface PaginationProps {
-  currentPage: number;
-  setCurrentPage: (number: number) => void;
-  totalDogs: number;
-  dogsPerPage: number;
-}
+import { PaginationProps } from "../interfaces";
 
 function Pagination({
   currentPage,
@@ -31,20 +26,13 @@ function Pagination({
     pages.push(i);
   }
 
-  console.log("CURRENT PAGE ", currentPage);
-  console.log("STARTING PAGE ", startingPage);
-
   function decrement() {
-    console.log("STARTING PAGE=", startingPage);
     setCurrentPage(startingPage + 1 - buttonsPerPage);
   }
 
   function increment() {
     setCurrentPage(startingPage + 1 + buttonsPerPage);
   }
-
-  console.log("CURRENT PAGE =", currentPage);
-  console.log("PAGES", pages);
 
   return (
     <div className="mt-10 flex flex-wrap gap-4 justify-center">
