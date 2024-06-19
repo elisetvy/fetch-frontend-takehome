@@ -84,6 +84,14 @@ The maximum total number of dogs that will be matched by a single query is 10,00
 
     return response.json();
   }
+
+  /** Returns 1 dog ID as a string. */
+
+  static async getMatch(ids: IDs) {
+    const response = await this.request("dogs/match", ids, "POST");
+
+    return response.json();
+  }
 }
 
 export default Api;
