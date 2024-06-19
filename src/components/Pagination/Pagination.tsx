@@ -26,7 +26,7 @@ function Pagination({
   console.log(totalDogs);
 
   return (
-    <div className="mt-10 flex flex-wrap gap-2 md:gap-10 justify-center">
+    <div className="mt-10 flex flex-wrap gap-2 md:gap-8 justify-center">
       {pages.map((page, index) => {
         return (
           <button
