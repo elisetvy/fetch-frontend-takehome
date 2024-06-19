@@ -1,29 +1,34 @@
 import { useState, useEffect } from "react";
 
 import Dog from "../Dog/Dog";
+import Pagination from "../Pagination/Pagination";
 
 import { Dog as DogType } from "../interfaces";
 import Api from "../api";
 
 function Search() {
   const [breeds, setBreeds] = useState([]);
-  const [filters, setFilters] = useState({ sort: "name:asc" });
+  const [totalDogs, setTotalDogs] = useState(0);
+  const [filters, setFilters] = useState({ sort: "name:asc", from: 0 });
   const [dogs, setDogs] = useState([]);
+  const dogsPerPage = 24;
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function getDogs() {
       // Get all breeds on initial render only
       if (!breeds.length) {
         const breeds = await Api.getBreeds();
-        console.log(breeds, "BREEDS");
         setBreeds(breeds);
       }
 
       try {
         const searchResults = await Api.searchDogs(filters);
+        const totalDogs = await searchResults.total;
         const ids = await searchResults.resultIds;
         const dogs = await Api.fetchDogs(ids);
+        setTotalDogs(totalDogs);
         setDogs(dogs);
 
         setLoading(false);
@@ -35,26 +40,37 @@ function Search() {
     getDogs();
   }, [filters]);
 
-  async function handleChange(e) {
+  function handleChange(e) {
     const { name, value } = e.target;
 
     if (name === "breeds") {
       if (value === "all") {
         setFilters((prev) => ({
           sort: prev.sort,
+          from: 0,
         }));
       } else {
         setFilters((prev) => ({
           ...prev,
           breeds: [value],
+          from: 0,
         }));
       }
     } else {
       setFilters((prev) => ({
         ...prev,
         sort: `name:${value}`,
+        from: 0,
       }));
     }
+  }
+
+  function changePage(newPage: number) {
+    setCurrentPage(newPage);
+    setFilters((prev) => ({
+      ...prev,
+      from: (newPage - 1) * dogsPerPage,
+    }));
   }
 
   return (
@@ -94,6 +110,12 @@ function Search() {
           return <Dog dog={d} />;
         })}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={changePage}
+        totalDogs={totalDogs}
+        dogsPerPage={dogsPerPage}
+      ></Pagination>
     </div>
   );
 }
