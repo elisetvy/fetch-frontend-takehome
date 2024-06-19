@@ -1,9 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
+import { useState } from "react";
 
 import Auth from "./components/auth/Auth";
 import Dogs from "./components/Dogs/Dogs";
 
 function App() {
+  const [currUser, setCurrUser] = useState(
+    sessionStorage.getItem("user") || null
+  );
+
   return (
     <BrowserRouter>
       <div className="flex flex-col items-center my-10 mx-10">
@@ -16,8 +21,14 @@ function App() {
           friend!
         </p>
         <Routes>
-          <Route path="/" element={<Auth />}></Route>
-          <Route path="/dogs" element={<Dogs />} />
+          {currUser === null ? (
+            <Route
+              path="/"
+              element={<Auth setCurrUser={setCurrUser} />}
+            ></Route>
+          ) : (
+            <Route path="/" element={<Dogs />}></Route>
+          )}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

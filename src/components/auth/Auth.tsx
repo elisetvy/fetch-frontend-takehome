@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import Api from "../api";
 
-function Auth() {
+interface AuthProps {
+  setCurrUser: (user: string) => void;
+}
+
+function Auth({ setCurrUser }: AuthProps) {
   const initialUserData = {
     name: "",
     email: "",
@@ -24,7 +28,13 @@ function Auth() {
     e.preventDefault();
 
     try {
-      await Api.login(userData);
+      const resp = await Api.login(userData);
+
+      if (resp.ok) {
+        sessionStorage.setItem("user", userData.name);
+        setCurrUser(userData.name);
+      }
+
       navigate("/dogs");
     } catch (err) {
       console.log(err);
