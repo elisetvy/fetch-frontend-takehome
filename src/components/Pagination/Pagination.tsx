@@ -26,11 +26,10 @@ function Pagination({
   function decrement() {
     setCurrentPage(startingPage - buttonsPerPage);
   }
-  
+
   function increment() {
     setCurrentPage(startingPage + buttonsPerPage);
   }
-
 
   // const pages = [];
   // const totalPages = Math.ceil(totalDogs / dogsPerPage);
@@ -51,7 +50,7 @@ function Pagination({
         onClick={decrement}
         className="bg-red-100 h-12 w-12 px-2 py-2 font-bold rounded-xl"
       >
-        ⟩
+        ⟨
       </button>
       {pages.map((page, index) => {
         return (
