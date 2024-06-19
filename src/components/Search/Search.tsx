@@ -16,11 +16,11 @@ function Search() {
       // Get all breeds on initial render only
       if (!breeds.length) {
         const breeds = await Api.getBreeds();
+        console.log(breeds, "BREEDS");
         setBreeds(breeds);
       }
 
       try {
-        console.log(filters, "FILTERS ARE!!!!!");
         const searchResults = await Api.searchDogs(filters);
         const ids = await searchResults.resultIds;
         const dogs = await Api.fetchDogs(ids);
@@ -58,9 +58,9 @@ function Search() {
   }
 
   return (
-    <div>
+    <div className="">
       {loading === false && (
-        <form className="Lexend flex justify-end items-center gap-2">
+        <form className="Lexend w-full flex flex-col items-center gap-2 sm:flex-row justify-end">
           <label htmlFor="breeds" className="font-bold">
             Breed
           </label>
@@ -68,7 +68,7 @@ function Search() {
             id="breeds"
             name="breeds"
             onChange={handleChange}
-            className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100"
+            className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100 w-3/4 sm:w-fit"
           >
             <option value="all">All Breeds</option>
             {breeds.map((breed) => {
@@ -82,7 +82,7 @@ function Search() {
             id="sort"
             name="sort"
             onChange={handleChange}
-            className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100"
+            className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100 w-3/4 sm:w-fit"
           >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>

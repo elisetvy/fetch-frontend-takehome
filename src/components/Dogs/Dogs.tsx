@@ -27,7 +27,7 @@ function Dogs() {
   // }, []);
 
   return (
-    <div className="mt-10">
+    <div className="w-full mt-10">
       <Search />
       {/* {loading === false && (
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
