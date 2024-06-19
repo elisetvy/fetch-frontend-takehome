@@ -23,15 +23,27 @@ function Search() {
   return (
     <div>
       {loading === false && (
-        <form className="flex justify-end items-center gap-2">
-          <label>Breed</label>
-          <select className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100">
+        <form className="Lexend flex justify-end items-center gap-2">
+          <label htmlFor="breed" className="font-bold">
+            Breed
+          </label>
+          <select
+            id="breed"
+            name="breed"
+            className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100"
+          >
             {breeds.map((breed) => {
               return <option value={breed}>{breed}</option>;
             })}
           </select>
-          <label>Sort</label>
-          <select className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100">
+          <label htmlFor="sort" className="font-bold">
+            Sort
+          </label>
+          <select
+            id="sort"
+            name="sort"
+            className="bg-blue-100 rounded-xl px-2 py-1 border-r-8 border-blue-100"
+          >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
