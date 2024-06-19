@@ -6,11 +6,11 @@ function LogOut({ setCurrUser }: AuthProps) {
   async function handleClick(e) {
     e.preventDefault();
 
+    sessionStorage.clear();
+    setCurrUser("");
+
     try {
       await Api.logout();
-
-      sessionStorage.clear();
-      setCurrUser("");
     } catch (err) {
       console.log(err);
     }
