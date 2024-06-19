@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Auth from "./components/Auth/Auth";
 import Dogs from "./components/Dogs/Dogs";
+import Match from "./components/Match/Match";
 import LogOut from "./components/LogOut/LogOut";
 
 function App() {
@@ -24,12 +25,15 @@ function App() {
           database of shelter dogs, making it easy to find your furry new best
           friend!
         </p>
+        {currUser && <Match />}
         {currUser && <LogOut setCurrUser={setCurrUser} />}
         <Routes>
           {currUser ? (
             <Route
               path="/"
-              element={<Dogs setFavorites={setFavorites} />}
+              element={
+                <Dogs favorites={favorites} setFavorites={setFavorites} />
+              }
             ></Route>
           ) : (
             <Route
