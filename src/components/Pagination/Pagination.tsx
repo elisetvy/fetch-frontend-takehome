@@ -14,10 +14,10 @@ function Pagination({
   const pages = [];
   const totalPages = Math.ceil(totalDogs / dogsPerPage);
 
-  let pageCap = totalPages;
+  let pageCap = currentPage + 10;
 
-  if (totalPages > 10) {
-    pageCap = 10;
+  if (pageCap > totalPages) {
+    pageCap = totalPages;
   }
 
   for (let i = currentPage; i < pageCap; i++) {
@@ -26,7 +26,7 @@ function Pagination({
   console.log(totalDogs);
 
   return (
-    <div className="mt-10 flex flex-wrap gap-10 justify-center">
+    <div className="mt-10 flex flex-wrap gap-2 md:gap-10 justify-center">
       {pages.map((page, index) => {
         return (
           <button
