@@ -1,4 +1,4 @@
-export interface UserData  {
+export interface UserData {
   name: string;
   email: string;
 }
@@ -16,10 +16,10 @@ export interface Dog {
 
 export interface SearchParams {
   breeds?: string[];
-  zipCodes?: string[];
+  zipCodes?: number[];
   ageMin?: number;
   ageMax?: number;
   size?: number;
-  from?: string;
+  from?: number;
   sort?: string; // field:asc/desc
 }
