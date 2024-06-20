@@ -31,7 +31,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
 
   return (
     <div className="">
-      <form className="Lexend bg-orange px-2 py-2 rounded-full w-full flex flex-col items-center gap-2 sm:flex-row justify-end">
+      <form className="Lexend bg-purple text-slate-100 px-2 py-2 rounded-full w-full flex flex-col items-center gap-2 sm:flex-row justify-end">
         <label htmlFor="breeds" className="font-bold">
           Breed
         </label>
@@ -39,7 +39,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
           id="breeds"
           name="breeds"
           onChange={handleChange}
-          className="bg-orange-lighter rounded-xl px-2 py-1 border-r-8 border-[#f9b35e] w-3/4 sm:w-fit"
+          className="bg-slate-100 text-purple rounded-xl px-2 py-1 border-r-8 border-slate-100 w-3/4 sm:w-fit"
         >
           <option value="all">All Breeds</option>
           {breeds.map((breed: string) => {
@@ -53,7 +53,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
           id="sort"
           name="sort"
           onChange={handleChange}
-          className="bg-orange-lighter rounded-xl px-2 py-1 border-r-8 border-[#f9b35e] w-3/4 sm:w-fit"
+          className="bg-slate-100 text-purple rounded-xl px-2 py-1 border-r-8 border-slate-100 w-3/4 sm:w-fit"
         >
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
