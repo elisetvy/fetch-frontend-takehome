@@ -12,7 +12,7 @@ export interface AuthProps {
 export type IDs = string[];
 
 export interface DogsProps {
-  setFavorites: Dispatch<SetStateAction<string[]>>;
+  setFavorites: Dispatch<SetStateAction<string>>;
 }
 
 export interface Dog {
