@@ -16,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="flex flex-col items-center my-10 mx-10">
+      <div className="flex flex-col items-center my-4 mx-10">
         {currUser && <Nav setCurrUser={setCurrUser} />}
         <Link to="/" className="mt-4 text-3xl font-bold">
           The Pawfect Match
@@ -33,7 +33,10 @@ function App() {
                 path="/"
                 element={<Dogs setFavorites={setFavorites} />}
               ></Route>
-              <Route path="/favorites" element={<Favorites />} />
+              <Route
+                path="/favorites"
+                element={<Favorites favorites={favorites} setFavorites={setFavorites} />}
+              />
             </>
           ) : (
             <Route
