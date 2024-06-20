@@ -27,7 +27,7 @@ function Dog({ dog, setFavorites }: DogProps) {
   const isFavorite = faves.includes(dog.id);
 
   return (
-    <div className="bg-slate-100 drop-shadow-md rounded-xl overflow-hidden">
+    <div className="bg-slate-100 drop-shadow-md rounded-xl">
       <div className="h-[250px] overflow-hidden">
         <img
           className="aspect-square object-cover h-full w-full"
