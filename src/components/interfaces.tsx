@@ -18,6 +18,16 @@ export interface Dog {
   breed: string;
 }
 
+export interface DogProps {
+  dog: Dog;
+  setFavorites: (id: string) => void;
+}
+
+export interface FavoritesProps {
+  favorites: string;
+  setFavorites: (id: string) => void;
+}
+
 export interface PaginationProps {
   currentPage: number;
   setCurrentPage: (number: number) => void;

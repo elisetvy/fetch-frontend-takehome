@@ -1,25 +1,30 @@
-import { Dog as DogType } from "../interfaces";
+import { useState } from "react";
 
-interface DogProps {
-  dog: DogType;
-  favorites: (id: string) => void;
-}
+import { DogProps } from "../interfaces";
 
 function Dog({ dog, setFavorites }: DogProps) {
-  function favoriteDog(e) {
-    let favorites = sessionStorage.getItem("favorites");
-    console.log("ID ", e.target.value);
-    console.log("favorites ", favorites);
+  const [faves, setFaves] = useState(() => {
+    const sessionFaves = sessionStorage.getItem("favorites");
+    return sessionFaves ? JSON.parse(sessionFaves) : [];
+  });
 
-    if (favorites === null) {
-      favorites = [e.target.value];
-      sessionStorage.setItem("favorites", JSON.stringify(favorites));
-    } else {
-      const updatedFavorites = [...JSON.parse(favorites)];
-      updatedFavorites.push(e.target.value);
-      sessionStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-    }
+  function favoriteDog(e) {
+    const id = e.target.value;
+
+    setFaves((prev) => {
+      let updatedFaves;
+      if (prev.includes(id)) {
+        updatedFaves = prev.filter((p) => p !== id);
+      } else {
+        updatedFaves = [...prev, id];
+      }
+
+      sessionStorage.setItem("favorites", JSON.stringify(updatedFaves));
+      return updatedFaves;
+    });
   }
+
+  const isFavorite = faves.includes(dog.id);
 
   return (
     <div className="bg-slate-100 rounded-xl overflow-hidden">
@@ -42,9 +47,11 @@ function Dog({ dog, setFavorites }: DogProps) {
           <button
             value={dog.id}
             onClick={favoriteDog}
-            className="Lexend w-full mt-4 bg-rose-500 px-4 py-2 rounded-xl hover:bg-rose-600 text-white"
+            className={`Lexend w-full mt-4 px-4 py-2 rounded-xl text-white ${
+              !isFavorite ? `bg-rose-500 hover:bg-rose-600` : `bg-yellow-500`
+            }`}
           >
-            Favorite {dog.name}
+            {!isFavorite ? `Favorite ${dog.name}` : `Unfavorite ${dog.name}`}
           </button>
         </div>
       </div>
