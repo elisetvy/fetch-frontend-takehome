@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link, use } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Dog from "../Dog/Dog";
 
+import { Dog as DogType, FavoritesProps } from "../interfaces";
+
 import Api from "../api";
 
-function Favorites({ favorites, setFavorites }) {
+function Favorites({ favorites, setFavorites }: FavoritesProps) {
   const [dogs, setDogs] = useState([]);
-  const [match, setMatch] = useState(null);
+  const [match, setMatch] = useState<DogType | null>(null);
   const [matched, setMatched] = useState(false);
 
   useEffect(() => {
@@ -23,7 +25,7 @@ function Favorites({ favorites, setFavorites }) {
     getDogs();
   }, []);
 
-  async function handleClick(e) {
+  async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     try {
@@ -47,7 +49,7 @@ function Favorites({ favorites, setFavorites }) {
         <p className="font-bold text-center">Your Favorite Dogs</p>
       </div>
       <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
-        {matched === true && (
+        {match && (
           <div className="flex flex-col items-center mb-4">
             <Dog dog={match} />
             <h1 className="text-3xl font-bold mt-10 text-purple">
