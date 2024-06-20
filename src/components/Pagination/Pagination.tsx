@@ -52,7 +52,9 @@ function Pagination({
             value={page}
             onClick={() => setCurrentPage(page)}
             className={`${
-              page === currentPage ? "bg-orange" : "bg-orange-lighter"
+              page === currentPage
+                ? "bg-purple text-white"
+                : "bg-orange-lighter hover:bg-[#ff9900]"
             } h-12 w-12 px-2 py-2 font-bold rounded-xl`}
           >
             {page}
