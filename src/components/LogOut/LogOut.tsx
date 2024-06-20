@@ -3,7 +3,7 @@ import { AuthProps } from "../interfaces";
 import Api from "../api";
 
 function LogOut({ setCurrUser }: AuthProps) {
-  async function handleClick(e) {
+  async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     sessionStorage.clear();
