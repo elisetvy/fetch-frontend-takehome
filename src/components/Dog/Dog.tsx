@@ -37,7 +37,7 @@ function Dog({ dog, setFavorites }: DogProps) {
       <div className="px-4 py-4">
         <div className="flex items-center gap-2">
           <p className="text-xl font-bold text-purple">{dog.name}</p>
-          <p className="Lexend text-xs uppercase bg-orange text-white px-2 py-1 rounded-xl">
+          <p className="Lexend text-xs uppercase bg-purple text-white px-2 py-1 rounded-xl">
             {dog.breed}
           </p>
         </div>
