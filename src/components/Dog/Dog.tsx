@@ -27,7 +27,7 @@ function Dog({ dog, setFavorites }: DogProps) {
   const isFavorite = faves.includes(dog.id);
 
   return (
-    <div className="bg-slate-100 rounded-xl overflow-hidden">
+    <div className="bg-slate-100 drop-shadow-md rounded-xl overflow-hidden">
       <div className="h-[250px] overflow-hidden">
         <img
           className="aspect-square object-cover h-full w-full"
@@ -36,19 +36,19 @@ function Dog({ dog, setFavorites }: DogProps) {
       </div>
       <div className="px-4 py-4">
         <div className="flex items-center gap-2">
-          <p className="text-xl font-bold">{dog.name}</p>
-          <p className="Lexend text-xs uppercase bg-white px-2 py-1 rounded-xl">
+          <p className="text-xl font-bold text-purple">{dog.name}</p>
+          <p className="Lexend text-xs uppercase bg-orange text-white px-2 py-1 rounded-xl">
             {dog.breed}
           </p>
         </div>
-        <p className="Lexend mt-2">Age: {dog.age} </p>
-        <p className="Lexend">Location: {dog.zip_code}</p>
+        <p className="Lexend mt-2 text-purple">Age: {dog.age} </p>
+        <p className="Lexend text-purple">Location: {dog.zip_code}</p>
         <div className="flex justify-center">
           <button
             value={dog.id}
             onClick={favoriteDog}
             className={`Lexend w-full mt-4 px-4 py-2 rounded-xl text-white ${
-              !isFavorite ? `bg-rose-500 hover:bg-rose-600` : `bg-yellow-500`
+              !isFavorite ? `bg-purple hover:bg-rose-600` : `bg-yellow-500`
             }`}
           >
             {!isFavorite ? `Favorite ${dog.name}` : `Unfavorite ${dog.name}`}
