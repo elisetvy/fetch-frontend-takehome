@@ -9,3 +9,19 @@ html {
 .Lexend {
   font-family: "Lexend";
 }
+
+.text-purple {
+  color: #890a74;
+}
+
+.bg-purple {
+  background: #890a74;
+}
+
+.text-orange {
+  color: #ff9900;
+}
+
+.bg-orange {
+  background: #ff9900;
+}
