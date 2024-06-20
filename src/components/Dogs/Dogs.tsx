@@ -54,7 +54,7 @@ function Dogs({ setFavorites }: (id: string) => void) {
   return (
     <div className="h-full px-10">
       {loading ? (
-        <p>Loading</p>
+        <div className="h-full flex justify-center items-center text-3xl font-bold text-purple">Loading...</div>
       ) : (
         <div className="h-full flex flex-col">
           <div className="flex-shrink-0">
