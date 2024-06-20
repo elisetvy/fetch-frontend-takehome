@@ -1,7 +1,8 @@
-import { DOGS_PER_PAGE } from "../constants";
+import { ChangeEvent } from "react";
+import { QueryParams, SearchProps } from "../interfaces";
 
-function Search({ breeds, setFilters, setCurrentPage }) {
-  function handleChange(e) {
+function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
+  function handleChange(e: ChangeEvent<HTMLSelectElement>) {
     const { name, value } = e.target;
 
     if (name === "breeds") {
@@ -13,7 +14,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
         }));
       } else {
         setCurrentPage(1);
-        setFilters((prev) => ({
+        setFilters((prev: QueryParams) => ({
           sort: prev.sort,
           breeds: [value],
           from: 0,
@@ -21,7 +22,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
       }
     } else {
       setCurrentPage(1);
-      setFilters((prev) => ({
+      setFilters((prev: QueryParams) => ({
         ...prev,
         sort: `name:${value}`,
         from: 0,
