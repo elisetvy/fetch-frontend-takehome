@@ -18,6 +18,14 @@ html {
   background: #890a74;
 }
 
+.text-purple-darker {
+  color: #300d38;
+}
+
+.bg-purple-darker {
+  color: #300d38;
+}
+
 .text-orange {
   color: #ff9900;
 }
