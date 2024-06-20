@@ -7,6 +7,8 @@ import Api from "../api";
 
 function Favorites({ favorites, setFavorites }) {
   const [dogs, setDogs] = useState([]);
+  const [match, setMatch] = useState(null);
+  const [matched, setMatched] = useState(false);
 
   useEffect(() => {
     async function getDogs() {
@@ -20,6 +22,19 @@ function Favorites({ favorites, setFavorites }) {
 
     getDogs();
   }, []);
+
+  async function handleClick(e) {
+    e.preventDefault();
+
+    try {
+      const match = await Api.getMatch(JSON.parse(favorites));
+      const matchedDog = await Api.fetchDogs([match.match]);
+      setMatch(matchedDog[0]);
+      setMatched(true);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className="mt-10">
@@ -37,7 +52,20 @@ function Favorites({ favorites, setFavorites }) {
         </div>
       )}
       <div className="mt-6 text-center">
-      <button className="Lexend bg-rose-500 px-10 py-4 rounded-xl text-2xl hover:bg-rose-600 text-white">Find Your Pawfect Match</button>
+        {matched === true && (
+          <div className="flex flex-col items-center mb-4">
+            <h1 className="Lexend my-4 text-red-500">
+              {match.name} is yo pawfect match
+            </h1>
+            <Dog dog={match} />
+          </div>
+        )}
+        <button
+          onClick={handleClick}
+          className="Lexend bg-rose-500 px-10 py-4 rounded-xl text-2xl hover:bg-rose-600 text-white"
+        >
+          Find Your Pawfect Match
+        </button>
       </div>
       <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
         {dogs.map((dog) => {
