@@ -52,7 +52,7 @@ function Dogs({ setFavorites }: (id: string) => void) {
   }
 
   return (
-    <div className="mt-10 max-h-screen overflow-scroll">
+    <div className="max-h-screen overflow-scroll px-10 border-2 border-green-500">
       {loading ? (
         <p>Loading</p>
       ) : (
