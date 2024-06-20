@@ -14,7 +14,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
       } else {
         setCurrentPage(1);
         setFilters((prev) => ({
-          ...prev,
+          sort: prev.sort,
           breeds: [value],
           from: 0,
         }));
