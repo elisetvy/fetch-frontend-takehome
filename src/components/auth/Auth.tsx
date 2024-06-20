@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import { AuthProps } from "../interfaces";
 import Api from "../api";
@@ -13,13 +13,13 @@ function Auth({ setCurrUser }: AuthProps) {
   const [error, setError] = useState("");
 
   /** Update state within form data. */
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   }
 
   /** Call login function with user data. */
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (userData.name === "" || userData.email === "") {
@@ -40,7 +40,10 @@ function Auth({ setCurrUser }: AuthProps) {
 
   return (
     <div className="h-full flex flex-col justify-center items-center text-center">
-      <form className="Lexend text-purple w-1/2 bg-slate-100 drop-shadow-md px-10 py-10 rounded-xl mx-10 flex flex-col items-center min-w-1/3 ">
+      <form
+        onSubmit={handleSubmit}
+        className="Lexend text-purple w-1/2 bg-slate-100 drop-shadow-md px-10 py-10 rounded-xl mx-10 flex flex-col items-center min-w-1/3 "
+      >
         <h1 className="text-2xl font-bold pb-6">Let's Get Started</h1>
         <div className="grid grid-cols-6 gap-2 w-full pb-4">
           <label htmlFor="name" className="">
@@ -72,7 +75,7 @@ function Auth({ setCurrUser }: AuthProps) {
         </div>
         {error && <p className="mt-6 text-purple-darker">{error}</p>}
         <button
-          onClick={handleSubmit}
+          type="submit"
           className="bg-purple rounded-xl px-6 py-2 w-fit mt-6 text-white hover:bg-[#300d38]"
         >
           Log In
