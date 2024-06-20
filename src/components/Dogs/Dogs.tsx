@@ -52,27 +52,31 @@ function Dogs({ setFavorites }: (id: string) => void) {
   }
 
   return (
-    <div className="max-h-full overflow-scroll overflow-x-hidden px-10">
+    <div className="h-full px-10">
       {loading ? (
         <p>Loading</p>
       ) : (
-        <>
+        <div className="h-full flex flex-col">
+          <div className="flex-shrink-0">
           <Search
             breeds={breeds}
             setFilters={setFilters}
             setCurrentPage={setCurrentPage}
           />
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
+          </div>
+          <div className="flex-grow mt-10 grid grid-cols-3 gap-10 px-10 overflow-scroll overflow-x-hidden">
             {dogs.map((d: DogType) => {
               return <Dog dog={d} setFavorites={setFavorites} />;
             })}
           </div>
+          <div className="flex-shrink-0">
           <Pagination
             currentPage={currentPage}
             setCurrentPage={changePage}
             totalDogs={totalDogs}
           ></Pagination>
-        </>
+          </div>
+        </div>
       )}
     </div>
   );
