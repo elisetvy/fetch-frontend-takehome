@@ -18,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="grid grid-cols-3">
-        <div className="col-span-1 flex flex-col justify-center bg-rose-100 min-h-screen px-10 py-10">
+        <div className="col-span-1 flex flex-col justify-center bg-orange-lighter text-purple min-h-screen px-10 py-10">
           <p className="mt-4 text-3xl font-bold">The Pawfect Match</p>
           <p className="Lexend mt-4">
             The Pawfect Match is here to help dog lovers like you search through
@@ -29,7 +29,7 @@ function App() {
             <>
               <div className="mt-4 flex flex-col items-start">
                 <Link to="/">
-                  <button className="Lexend mt-4 bg-blue-500 px-4 py-2 rounded-xl hover:bg-blue-600 text-white">
+                  <button className="Lexend mt-4 bg-purple px-4 py-2 rounded-xl hover:bg-blue-600 text-white">
                     See All Dogs
                   </button>
                 </Link>{" "}
