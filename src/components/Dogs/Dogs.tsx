@@ -1,4 +1,4 @@
-import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { useState, useEffect } from "react";
 
 import Search from "../Search/Search";
 import Dog from "../Dog/Dog";
