@@ -17,8 +17,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="grid grid-cols-3">
-        <div className="col-span-1 flex flex-col justify-center bg-orange text-purple min-h-screen px-10 py-10">
+      <div className="max-h-screen grid grid-cols-3">
+        <div className="col-span-1 flex flex-col justify-center bg-orange text-purple px-10 py-10">
           <p className="mt-4 text-3xl font-bold">The Pawfect Match</p>
           <p className="Lexend mt-4">
             The Pawfect Match is here to help dog lovers like you search through
@@ -39,7 +39,7 @@ function App() {
             </>
           )}
         </div>
-        <div className="col-span-2 bg-purple min-h-screen px-10 py-10">
+        <div className="col-span-2 bg-purple px-10 py-10">
           <Routes>
             {currUser ? (
               <>
