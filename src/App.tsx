@@ -25,7 +25,7 @@ function App() {
             best friend!
           </p>
         </div>
-        <div className="col-span-2 bg-blue-100 min-h-screen">
+        <div className="col-span-2 bg-blue-100 min-h-screen px-10 py-10">
           <Routes>
             {currUser ? (
               <>
