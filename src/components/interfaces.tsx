@@ -26,7 +26,7 @@ export interface Dog {
 
 export interface DogProps {
   dog: Dog;
-  setFavorites: Dispatch<SetStateAction<string>>;
+  setFavorites?: Dispatch<SetStateAction<string>>;
 }
 
 export interface FavoritesProps {
