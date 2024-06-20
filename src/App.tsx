@@ -39,7 +39,7 @@ function App() {
             </>
           )}
         </div>
-        <div className="col-span-2 bg-purple px-10 py-10">
+        <div className="col-span-2 px-10 py-10">
           <Routes>
             {currUser ? (
               <>
