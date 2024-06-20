@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 import Auth from "./components/Auth/Auth";
+import Nav from "./components/Nav/Nav";
 import Dogs from "./components/Dogs/Dogs";
-import Match from "./components/Match/Match";
-import LogOut from "./components/LogOut/LogOut";
 
 function App() {
   const [currUser, setCurrUser] = useState(
@@ -17,7 +16,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="flex flex-col items-center my-10 mx-10">
-        <Link to="/" className="text-3xl font-bold">
+        {currUser && <Nav setCurrUser={setCurrUser} />}
+        <Link to="/" className="mt-4 text-3xl font-bold">
           The Pawfect Match
         </Link>
         <p className="Lexend mt-4 min-w-2/4 text-center">
@@ -25,8 +25,6 @@ function App() {
           database of shelter dogs, making it easy to find your furry new best
           friend!
         </p>
-        {currUser && <Match />}
-        {currUser && <LogOut setCurrUser={setCurrUser} />}
         <Routes>
           {currUser ? (
             <Route

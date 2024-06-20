@@ -43,7 +43,7 @@ function Match() {
           onClick={handleClick}
           className="Lexend mt-4 bg-blue-500 px-4 py-2 rounded-xl hover:bg-blue-600 text-white"
         >
-          Get Match
+          Find Your Pawfect Match!
         </button>
       )}
     </div>
