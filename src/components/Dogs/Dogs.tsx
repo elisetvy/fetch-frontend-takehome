@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 import Search from "../Search/Search";
 import Dog from "../Dog/Dog";
 import Pagination from "../Pagination/Pagination";
 
-import { Dog as DogType } from "../interfaces";
+import { Dog as DogType, DogsProps } from "../interfaces";
 import { DOGS_PER_PAGE } from "../constants";
 
 import Api from "../api";
 
-function Dogs({ setFavorites }: (id: string) => void) {
+function Dogs({ setFavorites }: DogsProps) {
   const [breeds, setBreeds] = useState([]);
   const [totalDogs, setTotalDogs] = useState(0);
   const [filters, setFilters] = useState({ sort: "breed:asc", from: 0 });
@@ -41,7 +41,7 @@ function Dogs({ setFavorites }: (id: string) => void) {
     }
 
     getDogs();
-  }, [filters]);
+  }, []);
 
   function changePage(newPage: number) {
     setCurrentPage(newPage);
@@ -54,15 +54,17 @@ function Dogs({ setFavorites }: (id: string) => void) {
   return (
     <div className="h-full px-10">
       {loading ? (
-        <div className="h-full flex justify-center items-center text-3xl font-bold text-purple">Loading...</div>
+        <div className="h-full flex justify-center items-center text-3xl font-bold text-purple">
+          Loading...
+        </div>
       ) : (
         <div className="h-full flex flex-col">
           <div className="flex-shrink-0">
-          <Search
-            breeds={breeds}
-            setFilters={setFilters}
-            setCurrentPage={setCurrentPage}
-          />
+            <Search
+              breeds={breeds}
+              setFilters={setFilters}
+              setCurrentPage={setCurrentPage}
+            />
           </div>
           <div className="flex-grow mt-10 grid grid-cols-3 gap-10 px-10 overflow-scroll overflow-x-hidden">
             {dogs.map((d: DogType) => {
@@ -70,11 +72,11 @@ function Dogs({ setFavorites }: (id: string) => void) {
             })}
           </div>
           <div className="flex-shrink-0">
-          <Pagination
-            currentPage={currentPage}
-            setCurrentPage={changePage}
-            totalDogs={totalDogs}
-          ></Pagination>
+            <Pagination
+              currentPage={currentPage}
+              setCurrentPage={changePage}
+              totalDogs={totalDogs}
+            ></Pagination>
           </div>
         </div>
       )}
