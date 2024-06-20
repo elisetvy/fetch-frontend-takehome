@@ -12,7 +12,7 @@ import Api from "../api";
 function Dogs({ setFavorites }: (id: string) => void) {
   const [breeds, setBreeds] = useState([]);
   const [totalDogs, setTotalDogs] = useState(0);
-  const [filters, setFilters] = useState({ sort: "name:asc", from: 0 });
+  const [filters, setFilters] = useState({ sort: "breed:asc", from: 0 });
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
