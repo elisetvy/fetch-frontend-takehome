@@ -25,3 +25,11 @@ html {
 .bg-orange {
   background: #ff9900;
 }
+
+.text-orange-lighter {
+  color: #f9b35e;
+}
+
+.bg-orange-lighter {
+  background: #f9b35e;
+}
