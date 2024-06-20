@@ -26,7 +26,7 @@ export interface Dog {
 
 export interface FavoritesProps {
   favorites: string;
-  setFavorites: (id: string) => void;
+  setFavorites: Dispatch<SetStateAction<string>>;
 }
 
 export interface PaginationProps {
