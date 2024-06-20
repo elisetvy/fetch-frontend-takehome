@@ -37,7 +37,7 @@ function Favorites({ favorites, setFavorites }) {
   }
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 max-h-screen overflow-scroll">
       <p className="text-2xl font-bold text-center">YOUR FAVORITE DOGS</p>
       {favorites === null && (
         <div className="text-center">
