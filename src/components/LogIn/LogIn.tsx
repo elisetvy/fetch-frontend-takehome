@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { AuthProps } from "../interfaces";
 import Api from "../api";
 
-function Auth({ setCurrUser }: AuthProps) {
+function LogIn({ setCurrUser }: AuthProps) {
   const initialUserData = {
     name: "",
     email: "",
@@ -85,4 +85,4 @@ function Auth({ setCurrUser }: AuthProps) {
   );
 }
 
-export default Auth;
+export default LogIn;

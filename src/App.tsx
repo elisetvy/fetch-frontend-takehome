@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useState } from "react";
 
-import Auth from "./components/Auth/Auth";
+import LogIn from "./components/LogIn/LogIn";
 import Match from "./components/Match/Match";
 import Dogs from "./components/Dogs/Dogs";
 import Favorites from "./components/Favorites/Favorites";
@@ -60,7 +60,7 @@ function App() {
             ) : (
               <Route
                 path="/"
-                element={<Auth setCurrUser={setCurrUser} />}
+                element={<LogIn setCurrUser={setCurrUser} />}
               ></Route>
             )}
             <Route path="*" element={<Navigate to="/" />} />
