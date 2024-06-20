@@ -4,7 +4,7 @@ import Search from "../Search/Search";
 import Dog from "../Dog/Dog";
 import Pagination from "../Pagination/Pagination";
 
-import { Dog as DogType, DogsProps } from "../interfaces";
+import { Dog as DogType, DogsProps, QueryParams } from "../interfaces";
 import { DOGS_PER_PAGE } from "../constants";
 
 import Api from "../api";
@@ -12,7 +12,10 @@ import Api from "../api";
 function Dogs({ setFavorites }: DogsProps) {
   const [breeds, setBreeds] = useState([]);
   const [totalDogs, setTotalDogs] = useState(0);
-  const [filters, setFilters] = useState({ sort: "breed:asc", from: 0 });
+  const [filters, setFilters] = useState<QueryParams>({
+    sort: "breed:asc",
+    from: 0,
+  });
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
