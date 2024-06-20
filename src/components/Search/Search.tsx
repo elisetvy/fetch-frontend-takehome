@@ -31,7 +31,7 @@ function Search({ breeds, setFilters, setCurrentPage }) {
 
   return (
     <div className="">
-      <form className="Lexend w-full flex flex-col items-center gap-2 sm:flex-row justify-end">
+      <form className="Lexend bg-slate-100 px-2 py-2 rounded-full w-full flex flex-col items-center gap-2 sm:flex-row justify-end">
         <label htmlFor="breeds" className="font-bold">
           Breed
         </label>
