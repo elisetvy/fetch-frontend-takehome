@@ -44,3 +44,9 @@ export interface QueryParams {
   from?: number;
   sort?: string; // field:asc/desc
 }
+
+export interface SearchProps {
+  breeds: string[];
+  setFilters: Dispatch<SetStateAction<QueryParams>>;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
+}
