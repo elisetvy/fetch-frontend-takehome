@@ -8,12 +8,13 @@ function Dog({ dog, setFavorites }: DogProps) {
     return sessionFaves ? JSON.parse(sessionFaves) : [];
   });
 
-  function favoriteDog(e) {
-    const id = e.target.value;
+  function favoriteDog(e: React.MouseEvent<HTMLButtonElement>) {
+    const id = e.currentTarget.value;
 
-    setFaves((prev) => {
+    setFaves((prev: string) => {
       const updatedFaves = [...prev, id];
 
+      setFavorites(JSON.stringify(updatedFaves));
       sessionStorage.setItem("favorites", JSON.stringify(updatedFaves));
 
       return updatedFaves;
