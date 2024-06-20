@@ -12,7 +12,7 @@ function App() {
     sessionStorage.getItem("user") || null
   );
   const [favorites, setFavorites] = useState(
-    sessionStorage.getItem("favorites") || null
+    sessionStorage.getItem("favorites") || ""
   );
 
   return (
