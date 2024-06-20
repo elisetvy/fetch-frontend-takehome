@@ -17,7 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="max-h-screen grid grid-cols-3">
+      <div className=" min-h-screen max-h-screen grid grid-cols-3">
         <div className="col-span-1 flex flex-col justify-center bg-orange text-purple px-10 py-10">
           <p className="mt-4 text-3xl font-bold">The Pawfect Match</p>
           <p className="Lexend mt-4">
