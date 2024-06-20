@@ -1,12 +1,12 @@
 import { PaginationProps } from "../interfaces";
+import { DOGS_PER_PAGE } from "../constants";
 
 function Pagination({
   currentPage,
   setCurrentPage,
   totalDogs,
-  dogsPerPage,
 }: PaginationProps) {
-  const totalPages = Math.ceil(totalDogs / dogsPerPage);
+  const totalPages = Math.ceil(totalDogs / DOGS_PER_PAGE);
   const buttonsPerPage = 5;
   const startingPage =
     currentPage % buttonsPerPage === 0

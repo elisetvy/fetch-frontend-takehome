@@ -32,7 +32,6 @@ export interface PaginationProps {
   currentPage: number;
   setCurrentPage: (number: number) => void;
   totalDogs: number;
-  dogsPerPage: number;
 }
 
 export interface QueryParams {

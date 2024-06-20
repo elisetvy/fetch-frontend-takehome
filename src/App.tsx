@@ -31,9 +31,7 @@ function App() {
           {currUser ? (
             <Route
               path="/"
-              element={
-                <Dogs favorites={favorites} setFavorites={setFavorites} />
-              }
+              element={<Dogs setFavorites={setFavorites} />}
             ></Route>
           ) : (
             <Route
