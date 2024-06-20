@@ -10,6 +10,7 @@ function Auth({ setCurrUser }: AuthProps) {
   };
 
   const [userData, setUserData] = useState(initialUserData);
+  const [error, setError] = useState("");
 
   /** Update state within form data. */
   function handleChange(e) {
@@ -20,6 +21,12 @@ function Auth({ setCurrUser }: AuthProps) {
   /** Call login function with user data. */
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (userData.name === "" || userData.email === "") {
+      setError("Please enter your name and a valid email to get started.");
+
+      return;
+    }
 
     try {
       await Api.login(userData);
@@ -63,6 +70,7 @@ function Auth({ setCurrUser }: AuthProps) {
             type="email"
           ></input>
         </div>
+        {error && <p className="mt-4 text-red-500">{error}</p>}
         <button
           onClick={handleSubmit}
           className="bg-blue-600 rounded px-6 py-2 w-fit mt-4 text-white hover:opacity-85"
