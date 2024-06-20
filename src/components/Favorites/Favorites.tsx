@@ -36,6 +36,9 @@ function Favorites({ favorites, setFavorites }) {
           </Link>
         </div>
       )}
+      <div className="mt-6 text-center">
+      <button className="Lexend bg-rose-500 px-10 py-4 rounded-xl text-2xl hover:bg-rose-600 text-white">Find Your Pawfect Match</button>
+      </div>
       <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
         {dogs.map((dog) => {
           return <Dog dog={dog} setFavorites={setFavorites} />;
