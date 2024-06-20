@@ -55,7 +55,7 @@ function Favorites({ favorites, setFavorites }) {
         {matched === true && (
           <div className="flex flex-col items-center mb-4">
             <h1 className="Lexend my-4 text-red-500">
-              {match.name} is yo pawfect match
+              {match.name} is your Pawfect Match!
             </h1>
             <Dog dog={match} />
           </div>
@@ -64,7 +64,7 @@ function Favorites({ favorites, setFavorites }) {
           onClick={handleClick}
           className="Lexend bg-rose-500 px-10 py-4 rounded-xl text-2xl hover:bg-rose-600 text-white"
         >
-          Find Your Pawfect Match
+          {match !== null ? "Match Again" : "Find Your Perfect Match"}
         </button>
       </div>
       <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
