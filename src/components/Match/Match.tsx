@@ -3,6 +3,7 @@ import { useState } from "react";
 import Dog from "../Dog/Dog";
 
 import Api from "../api";
+import { Link } from "react-router-dom";
 
 function Match() {
   const [match, setMatch] = useState(null);
@@ -39,12 +40,11 @@ function Match() {
         </div>
       )}
       {favorites !== null && (
-        <button
-          onClick={handleClick}
-          className="Lexend mt-4 bg-blue-500 px-4 py-2 rounded-xl hover:bg-blue-600 text-white"
-        >
-          Find Your Pawfect Match!
-        </button>
+        <Link to="/favorites">
+          <button className="Lexend mt-4 bg-blue-500 px-4 py-2 rounded-xl hover:bg-blue-600 text-white">
+            Find Your Pawfect Match!
+          </button>
+        </Link>
       )}
     </div>
   );

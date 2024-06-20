@@ -4,6 +4,7 @@ import { useState } from "react";
 import Auth from "./components/Auth/Auth";
 import Nav from "./components/Nav/Nav";
 import Dogs from "./components/Dogs/Dogs";
+import Favorites from "./components/Favorites/Favorite";
 
 function App() {
   const [currUser, setCurrUser] = useState(
@@ -27,10 +28,13 @@ function App() {
         </p>
         <Routes>
           {currUser ? (
-            <Route
-              path="/"
-              element={<Dogs setFavorites={setFavorites} />}
-            ></Route>
+            <>
+              <Route
+                path="/"
+                element={<Dogs setFavorites={setFavorites} />}
+              ></Route>
+              <Route path="/favorites" element={<Favorites />} />
+            </>
           ) : (
             <Route
               path="/"
