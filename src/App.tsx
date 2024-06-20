@@ -4,7 +4,7 @@ import { useState } from "react";
 import Auth from "./components/Auth/Auth";
 import Nav from "./components/Nav/Nav";
 import Dogs from "./components/Dogs/Dogs";
-import Favorites from "./components/Favorites/Favorite";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [currUser, setCurrUser] = useState(
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="flex flex-col items-center my-4 mx-10">
+      <div className="flex flex-col items-center mt-10 mx-10">
         {currUser && <Nav setCurrUser={setCurrUser} />}
         <Link to="/" className="mt-4 text-3xl font-bold">
           The Pawfect Match
@@ -35,7 +35,12 @@ function App() {
               ></Route>
               <Route
                 path="/favorites"
-                element={<Favorites favorites={favorites} setFavorites={setFavorites} />}
+                element={
+                  <Favorites
+                    favorites={favorites}
+                    setFavorites={setFavorites}
+                  />
+                }
               />
             </>
           ) : (
