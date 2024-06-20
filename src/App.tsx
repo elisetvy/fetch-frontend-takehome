@@ -16,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="flex flex-col items-center mt-10 mx-10">
+      <div className="flex flex-col items-center mx-10 mx-10">
         {currUser && <Nav setCurrUser={setCurrUser} />}
         <Link to="/" className="mt-4 text-3xl font-bold">
           The Pawfect Match
