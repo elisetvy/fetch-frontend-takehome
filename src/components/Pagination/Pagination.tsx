@@ -39,7 +39,7 @@ function Pagination({
       <button
         onClick={decrement}
         className={`${
-          startingPage === 0 ? "bg-slate-100" : "bg-red-100"
+          startingPage === 0 ? "bg-slate-100" : "bg-orange"
         } h-12 w-12 px-2 py-2 font-bold rounded-xl`}
         disabled={startingPage === 0}
       >
@@ -52,7 +52,7 @@ function Pagination({
             value={page}
             onClick={() => setCurrentPage(page)}
             className={`${
-              page === currentPage ? "bg-blue-300" : "bg-blue-100"
+              page === currentPage ? "bg-orange" : "bg-orange-lighter"
             } h-12 w-12 px-2 py-2 font-bold rounded-xl`}
           >
             {page}
@@ -62,7 +62,7 @@ function Pagination({
       <button
         onClick={increment}
         className={`${
-          startingPage + 1 === lastStartingPage ? "bg-slate-100" : "bg-red-100"
+          startingPage + 1 === lastStartingPage ? "bg-slate-100" : "bg-orange"
         } h-12 w-12 px-2 py-2 font-bold rounded-xl`}
         disabled={startingPage + 1 === lastStartingPage}
       >
