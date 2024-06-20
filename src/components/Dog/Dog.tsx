@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { DogProps } from "../interfaces";
 
-function Dog({ dog, setFavorites }: DogProps) {
+function Dog({ dog }: DogProps) {
   const [faves, setFaves] = useState(() => {
     const sessionFaves = sessionStorage.getItem("favorites");
     return sessionFaves ? JSON.parse(sessionFaves) : [];
@@ -14,7 +14,6 @@ function Dog({ dog, setFavorites }: DogProps) {
     setFaves((prev: string) => {
       const updatedFaves = [...prev, id];
 
-      setFavorites(JSON.stringify(updatedFaves));
       sessionStorage.setItem("favorites", JSON.stringify(updatedFaves));
 
       return updatedFaves;
