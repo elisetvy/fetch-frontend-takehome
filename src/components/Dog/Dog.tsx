@@ -12,14 +12,10 @@ function Dog({ dog, setFavorites }: DogProps) {
     const id = e.target.value;
 
     setFaves((prev) => {
-      let updatedFaves;
-      if (prev.includes(id)) {
-        updatedFaves = prev.filter((p) => p !== id);
-      } else {
-        updatedFaves = [...prev, id];
-      }
+      const updatedFaves = [...prev, id];
 
       sessionStorage.setItem("favorites", JSON.stringify(updatedFaves));
+
       return updatedFaves;
     });
   }
@@ -48,12 +44,11 @@ function Dog({ dog, setFavorites }: DogProps) {
             value={dog.id}
             onClick={favoriteDog}
             className={`Lexend w-full mt-4 px-4 py-2 rounded-xl text-white ${
-              !isFavorite
-                ? `bg-purple hover:bg-[#ff9900]`
-                : `bg-orange hover:bg-[#890a74]`
+              !isFavorite ? `bg-purple hover:bg-[#300d38]` : `bg-orange`
             }`}
+            disabled={isFavorite}
           >
-            {!isFavorite ? `Favorite ${dog.name}` : `Unfavorite ${dog.name}`}
+            {!isFavorite ? `Favorite ${dog.name}` : `Favorited`}
           </button>
         </div>
       </div>
