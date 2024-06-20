@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 import Auth from "./components/Auth/Auth";
-import Nav from "./components/Nav/Nav";
+import Match from "./components/Match/Match";
 import Dogs from "./components/Dogs/Dogs";
 import Favorites from "./components/Favorites/Favorites";
+import LogOut from "./components/LogOut/LogOut";
 
 function App() {
   const [currUser, setCurrUser] = useState(
@@ -24,6 +25,14 @@ function App() {
             a database of shelter dogs, making it easy to find your furry new
             best friend!
           </p>
+          {currUser && (
+            <>
+              <div className="mt-4 flex flex-col items-start">
+                <Match />
+                <LogOut setCurrUser={setCurrUser} />
+              </div>
+            </>
+          )}
         </div>
         <div className="col-span-2 bg-blue-100 min-h-screen px-10 py-10">
           <Routes>
