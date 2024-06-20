@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface UserData {
   name: string;
   email: string;
@@ -9,6 +11,10 @@ export interface AuthProps {
 
 export type IDs = string[];
 
+export interface DogsProps {
+  setFavorites: Dispatch<SetStateAction<string[]>>;
+}
+
 export interface Dog {
   id: string;
   img: string;
@@ -16,11 +22,6 @@ export interface Dog {
   age: number;
   zip_code: string;
   breed: string;
-}
-
-export interface DogProps {
-  dog: Dog;
-  setFavorites: (id: string) => void;
 }
 
 export interface FavoritesProps {
