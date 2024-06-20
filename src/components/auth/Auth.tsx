@@ -70,7 +70,7 @@ function Auth({ setCurrUser }: AuthProps) {
             type="email"
           ></input>
         </div>
-        {error && <p className="mt-6 text-white">{error}</p>}
+        {error && <p className="mt-6 text-purple-darker">{error}</p>}
         <button
           onClick={handleSubmit}
           className="bg-purple rounded-xl px-6 py-2 w-fit mt-6 text-white hover:bg-[#300d38]"
