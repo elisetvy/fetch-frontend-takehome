@@ -17,7 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className=" min-h-screen max-h-screen grid grid-cols-3">
+      <div className="h-screen grid grid-cols-3">
         <div className="col-span-1 flex flex-col justify-center bg-orange text-purple px-10 py-10">
           <p className="mt-4 text-3xl font-bold">The Pawfect Match</p>
           <p className="Lexend mt-4">
@@ -27,7 +27,7 @@ function App() {
           </p>
           {currUser && (
             <>
-              <div className="mt-4 flex flex-col items-start">
+              <div className="max-h-screen mt-4 flex flex-col items-start">
                 <Link to="/">
                   <button className="Lexend mt-4 bg-purple px-4 py-2 rounded-xl hover:bg-blue-600 text-white">
                     See All Dogs
@@ -39,7 +39,7 @@ function App() {
             </>
           )}
         </div>
-        <div className="col-span-2 px-10 py-10">
+        <div className="max-h-screen col-span-2 px-10 py-10">
           <Routes>
             {currUser ? (
               <>
