@@ -48,7 +48,7 @@ function Dog({ dog, setFavorites }: DogProps) {
             value={dog.id}
             onClick={favoriteDog}
             className={`Lexend w-full mt-4 px-4 py-2 rounded-xl text-white ${
-              !isFavorite ? `bg-purple hover:bg-rose-600` : `bg-orange`
+              !isFavorite ? `bg-purple hover:bg-[#ff9900]` : `bg-orange`
             }`}
           >
             {!isFavorite ? `Favorite ${dog.name}` : `Unfavorite ${dog.name}`}
