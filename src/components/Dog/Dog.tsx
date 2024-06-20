@@ -28,9 +28,9 @@ function Dog({ dog, setFavorites }: DogProps) {
 
   return (
     <div className="bg-slate-100 drop-shadow-md rounded-xl">
-      <div className="h-[250px] overflow-hidden">
+      <div className="h-[250px]">
         <img
-          className="aspect-square object-cover h-full w-full"
+          className="aspect-square object-cover h-full w-full rounded-t-xl"
           src={dog.img}
         ></img>
       </div>
