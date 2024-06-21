@@ -80,14 +80,18 @@ To get a local version of The Pawfect Match up and running, do the following.
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/elisetvy/fetch-frontend-takehome.git
    ```
+
 2. Install NPM packages
+
    ```sh
    cd ./your-directory
    npm install
    ```
+
 3. Launch
    ```sh
    npm run dev -- --open
