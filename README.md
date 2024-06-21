@@ -36,7 +36,7 @@
     The Pawfect Match is here to help dog lovers like you search through a database of shelter dogs, making it easy to find a lucky dog a new home!
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://fetch-pawfectmatch.netlify.app/">View Demo</a>
   </p>
 </div>
 
@@ -56,7 +56,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
