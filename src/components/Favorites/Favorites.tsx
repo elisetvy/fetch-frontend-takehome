@@ -17,6 +17,11 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
   /** Gets all favorited dogs from IDs array. */
   useEffect(() => {
     async function getDogs() {
+      if (!favorites) {
+        setLoading(false);
+        return;
+      }
+
       try {
         const dogs = await Api.fetchDogs(JSON.parse(favorites));
         setDogs(dogs);
@@ -54,8 +59,8 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
         <p className="font-bold text-center">Your Favorite Dogs</p>
       </div>
       {loading ? (
-        <div className="h-full flex justify-center items-center text-3xl font-bold text-purple">
-          Loading...
+        <div className="h-full flex justify-center items-center">
+          <p className="text-3xl font-bold text-purple">Loading...</p>
         </div>
       ) : (
         <div className="mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6">
