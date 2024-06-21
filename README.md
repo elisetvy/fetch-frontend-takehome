@@ -57,7 +57,7 @@
 
 ## About The Project
 
-[![The Pawfect Match Screenshot][product-screenshot]]
+![The Pawfect Match Screenshot][product-screenshot]
 
 An application to explore adoptable dogs and find your Pawfect Match.
 
