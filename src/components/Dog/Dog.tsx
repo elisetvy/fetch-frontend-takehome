@@ -23,17 +23,17 @@ function Dog({ dog }: DogProps) {
   const isFavorite = faves.includes(dog.id);
 
   return (
-    <div className="bg-slate-100 drop-shadow-md rounded-xl">
-      <div className="h-[250px]">
+    <div className="bg-slate-100 drop-shadow-md rounded-xl flex flex-col">
+      <div className="flex-grow">
         <img
           className="aspect-square object-cover h-full w-full rounded-t-xl"
           src={dog.img}
         ></img>
       </div>
-      <div className="px-4 py-4">
+      <div className="flex-shrink-0 px-4 py-4">
         <div className="flex items-center gap-2">
           <p className="text-xl font-bold text-purple">{dog.name}</p>
-          <p className="Lexend text-xs uppercase bg-purple text-white px-2 py-1 rounded-xl">
+          <p className="Lexend text-[10px] uppercase bg-purple text-white px-2 py-1 rounded-xl">
             {dog.breed}
           </p>
         </div>

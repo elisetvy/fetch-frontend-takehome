@@ -69,7 +69,7 @@ function Dogs({ setFavorites }: DogsProps) {
               setCurrentPage={setCurrentPage}
             />
           </div>
-          <div className="flex-grow mt-10 grid grid-cols-3 gap-10 px-10 overflow-scroll overflow-x-hidden">
+          <div className="flex-grow mt-10 grid grid-cols-3 gap-6 px-6 overflow-scroll overflow-x-hidden">
             {dogs.map((d: DogType) => {
               return <Dog dog={d} key={d.id} setFavorites={setFavorites} />;
             })}
