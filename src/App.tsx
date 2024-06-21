@@ -2,16 +2,18 @@ import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 import LogIn from "./components/LogIn/LogIn";
-import Match from "./components/Match/Match";
+import NavLink from "./components/NavLink/NavLink";
 import Dogs from "./components/Dogs/Dogs";
 import Favorites from "./components/Favorites/Favorites";
 import LogOut from "./components/LogOut/LogOut";
 
+/** Renders dogs list if user is logged in; otherwise, renders login screen. */
+
 function App() {
-  const [currUser, setCurrUser] = useState(
-    sessionStorage.getItem("user") || null
+  const [currUser, setCurrUser] = useState<string>(
+    sessionStorage.getItem("user") || ""
   );
-  const [favorites, setFavorites] = useState(
+  const [favorites, setFavorites] = useState<string>(
     sessionStorage.getItem("favorites") || ""
   );
 
@@ -26,17 +28,13 @@ function App() {
             home!
           </p>
           {currUser && (
-            <>
+            <div>
               <div className="max-h-screen mt-4 flex flex-col items-start">
-                <Link to="/">
-                  <button className="Lexend mt-4 bg-purple px-4 py-2 rounded-xl hover:bg-[#300D38] text-white">
-                    See All Dogs
-                  </button>
-                </Link>{" "}
-                <Match />
+                <NavLink path="/" text="See All Dogs" />
+                <NavLink path="/favorites" text="Find Your Pawfect Match" />
                 <LogOut setCurrUser={setCurrUser} />
               </div>
-            </>
+            </div>
           )}
         </div>
         <div className="max-h-screen col-span-2 px-10 py-10">
