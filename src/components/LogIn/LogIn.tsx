@@ -1,7 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { LogInProps } from "../interfaces";
+import { UserData, LogInProps } from "../interfaces";
+
 import Api from "../api";
+
+/** Renders login form. Takes setCurrUser function to set the current user in state. */
 
 function LogIn({ setCurrUser }: LogInProps) {
   const initialUserData = {
@@ -9,21 +12,21 @@ function LogIn({ setCurrUser }: LogInProps) {
     email: "",
   };
 
-  const [userData, setUserData] = useState(initialUserData);
-  const [error, setError] = useState("");
+  const [userData, setUserData] = useState<UserData>(initialUserData);
+  const [error, setError] = useState<boolean>(false);
 
-  /** Update state within form data. */
+  /** Updates state within form data. */
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   }
 
-  /** Call login function with user data. */
+  /** Calls login function with user data. Sets current user in state and sessionStorage. */
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (userData.name === "" || userData.email === "") {
-      setError("Please enter your name and a valid email to get started.");
+      setError(true);
 
       return;
     }
@@ -73,7 +76,11 @@ function LogIn({ setCurrUser }: LogInProps) {
             type="email"
           ></input>
         </div>
-        {error && <p className="mt-6 text-purple-darker">{error}</p>}
+        {error && (
+          <p className="mt-6 text-purple-darker">
+            Please enter your name and a valid email to get started.
+          </p>
+        )}
         <button
           type="submit"
           className="bg-purple rounded-xl px-6 py-2 w-fit mt-6 text-white hover:bg-[#300d38]"
