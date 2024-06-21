@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import { NavLinkProps } from "../interfaces";
 
+/** Renders button. Takes path and button text as props. */
+
 function NavLink({ path, text }: NavLinkProps) {
   return (
     <Link to={path}>
