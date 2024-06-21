@@ -1,10 +1,12 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 import { SearchParams, SearchProps } from "../interfaces";
 
 /** Allows user to filter dogs by breed and sort alphabetically. */
 
 function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
+  const [sort, setSort] = useState<string>("asc");
+
   /** Updates filters with user's choice(s) and resets current page to 1. */
   function handleChange(e: ChangeEvent<HTMLSelectElement>) {
     const { name, value } = e.target;
@@ -19,10 +21,11 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
       } else {
         setCurrentPage(1);
         setFilters((prev: SearchParams) => ({
-          sort: prev.sort,
+          sort: "name:asc",
           breeds: [value],
           from: 0,
         }));
+        setSort("asc");
       }
     } else {
       setCurrentPage(1);
@@ -31,6 +34,7 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
         sort: `name:${value}`,
         from: 0,
       }));
+      setSort(value);
     }
   }
 
@@ -64,8 +68,12 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
           onChange={handleChange}
           className="bg-slate-100 text-purple rounded-xl px-2 py-1 border-r-8 border-slate-100 w-3/4 sm:w-fit"
         >
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
+          <option value="asc" selected={sort === "asc"}>
+            Ascending
+          </option>
+          <option value="desc" selected={sort === "desc"}>
+            Descending
+          </option>
         </select>
       </form>
     </div>
