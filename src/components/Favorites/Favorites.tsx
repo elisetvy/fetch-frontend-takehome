@@ -54,7 +54,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
       <div className="mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6">
         {match ? (
           <div className="col-start-2">
-            <Dog dog={match} />
+            <Dog dog={match} setFavorites={setFavorites} />
           </div>
         ) : (
           <>
