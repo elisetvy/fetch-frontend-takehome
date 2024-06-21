@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { QueryParams, SearchProps } from "../interfaces";
+import { SearchParams, SearchProps } from "../interfaces";
 
 function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
   function handleChange(e: ChangeEvent<HTMLSelectElement>) {
@@ -14,7 +14,7 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
         }));
       } else {
         setCurrentPage(1);
-        setFilters((prev: QueryParams) => ({
+        setFilters((prev: SearchParams) => ({
           sort: prev.sort,
           breeds: [value],
           from: 0,
@@ -22,7 +22,7 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
       }
     } else {
       setCurrentPage(1);
-      setFilters((prev: QueryParams) => ({
+      setFilters((prev: SearchParams) => ({
         ...prev,
         sort: `name:${value}`,
         from: 0,
