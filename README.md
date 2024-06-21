@@ -105,7 +105,7 @@ To get a local version of The Pawfect Match up and running, do the following.
 
 ## Contact
 
-Elise Ngo - [LinkedIn](https://linkedin.com/en/elisengo) - elisetvy@gmail.com
+Elise Ngo - [LinkedIn](https://linkedin.com/in/elisengo) - elisetvy@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
