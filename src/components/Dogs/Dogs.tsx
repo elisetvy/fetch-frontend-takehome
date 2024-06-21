@@ -44,7 +44,7 @@ function Dogs({ setFavorites }: DogsProps) {
     }
 
     getDogs();
-  }, []);
+  }, [filters]);
 
   function changePage(newPage: number) {
     setCurrentPage(newPage);
