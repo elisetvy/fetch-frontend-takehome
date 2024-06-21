@@ -20,7 +20,7 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
         }));
       } else {
         setCurrentPage(1);
-        setFilters((prev: SearchParams) => ({
+        setFilters(() => ({
           sort: "name:asc",
           breeds: [value],
           from: 0,
