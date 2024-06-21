@@ -32,6 +32,7 @@ function Dog({ dog, setFavorites }: DogProps) {
         <img
           className="aspect-square object-cover h-full w-full rounded-t-xl"
           src={dog.img}
+          alt={dog.breed}
         ></img>
       </div>
       <div className="flex-shrink-0 px-4 py-4">
