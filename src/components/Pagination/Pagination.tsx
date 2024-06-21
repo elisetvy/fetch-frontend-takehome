@@ -1,5 +1,7 @@
 import { PaginationProps } from "../interfaces";
-import { DOGS_PER_PAGE } from "../constants";
+import { DOGS_PER_PAGE, BUTTONS_PER_PAGE } from "../constants";
+
+/** Renders buttons to navigate between pages. */
 
 function Pagination({
   currentPage,
@@ -7,31 +9,30 @@ function Pagination({
   totalDogs,
 }: PaginationProps) {
   const totalPages = Math.ceil(totalDogs / DOGS_PER_PAGE);
-  const buttonsPerPage = 5;
   const startingPage =
-    currentPage % buttonsPerPage === 0
-      ? Math.floor(currentPage / buttonsPerPage) * buttonsPerPage -
-        buttonsPerPage
-      : Math.floor(currentPage / buttonsPerPage) * buttonsPerPage;
-  const maxPageIncremenets = Math.ceil(totalPages / buttonsPerPage) - 1;
-  const lastStartingPage = maxPageIncremenets * buttonsPerPage + 1;
+    currentPage % BUTTONS_PER_PAGE === 0
+      ? Math.floor(currentPage / BUTTONS_PER_PAGE) * BUTTONS_PER_PAGE -
+        BUTTONS_PER_PAGE
+      : Math.floor(currentPage / BUTTONS_PER_PAGE) * BUTTONS_PER_PAGE;
+  const maxPageIncremenets = Math.ceil(totalPages / BUTTONS_PER_PAGE) - 1;
+  const lastStartingPage = maxPageIncremenets * BUTTONS_PER_PAGE + 1;
 
   const pages = [];
   const pagesToLoop =
-    startingPage + buttonsPerPage > totalPages
+    startingPage + BUTTONS_PER_PAGE > totalPages
       ? totalPages
-      : startingPage + buttonsPerPage;
+      : startingPage + BUTTONS_PER_PAGE;
 
   for (let i = startingPage + 1; i <= pagesToLoop; i++) {
     pages.push(i);
   }
 
   function decrement() {
-    setCurrentPage(startingPage + 1 - buttonsPerPage);
+    setCurrentPage(startingPage + 1 - BUTTONS_PER_PAGE);
   }
 
   function increment() {
-    setCurrentPage(startingPage + 1 + buttonsPerPage);
+    setCurrentPage(startingPage + 1 + BUTTONS_PER_PAGE);
   }
 
   return (
