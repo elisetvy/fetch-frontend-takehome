@@ -45,7 +45,7 @@ export interface PaginationProps {
   totalDogs: number;
 }
 
-export interface QueryParams {
+export interface SearchParams {
   breeds?: string[];
   zipCodes?: number[];
   ageMin?: number;

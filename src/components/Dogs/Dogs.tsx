@@ -4,15 +4,17 @@ import Search from "../Search/Search";
 import Dog from "../Dog/Dog";
 import Pagination from "../Pagination/Pagination";
 
-import { Dog as DogType, DogsProps, QueryParams } from "../interfaces";
+import { Dog as DogType, DogsProps, SearchParams } from "../interfaces";
 import { DOGS_PER_PAGE } from "../constants";
 
 import Api from "../api";
 
+/** Renders dogs list. Takes setFavorites function to pass to DogCard. */
+
 function Dogs({ setFavorites }: DogsProps) {
-  const [breeds, setBreeds] = useState([]);
-  const [totalDogs, setTotalDogs] = useState(0);
-  const [filters, setFilters] = useState<QueryParams>({
+  const [breeds, setBreeds] = useState<string[]>([]);
+  const [totalDogs, setTotalDogs] = useState<number>(0);
+  const [filters, setFilters] = useState<SearchParams>({
     sort: "breed:asc",
     from: 0,
   });
