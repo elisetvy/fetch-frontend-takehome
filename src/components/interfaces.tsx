@@ -5,6 +5,11 @@ export interface UserData {
   email: string;
 }
 
+export interface NavLinkProps {
+  path: string;
+  text: string;
+}
+
 export interface AuthProps {
   setCurrUser: (user: string) => void;
 }
