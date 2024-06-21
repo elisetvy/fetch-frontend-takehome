@@ -94,6 +94,10 @@ To get a local version of The Pawfect Match up and running, do the following.
    ```sh
    npm run dev -- --open
    ```
+4. Run tests
+   ```sh
+   npm test
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
