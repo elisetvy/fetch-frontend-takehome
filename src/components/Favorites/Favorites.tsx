@@ -63,8 +63,8 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
           matched === true && "hidden"
         } mt-10 grid grid-cols-3 gap-10 overflow-scroll overflow-x-hidden px-10`}
       >
-        {dogs.map((dog) => {
-          return <Dog dog={dog} setFavorites={setFavorites} />;
+        {dogs.map((dog: DogType) => {
+          return <Dog dog={dog} key={dog.name} setFavorites={setFavorites} />;
         })}
       </div>
       <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
