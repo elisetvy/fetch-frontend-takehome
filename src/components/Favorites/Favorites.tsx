@@ -61,7 +61,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
       <div
         className={`empty:hidden ${
           matched === true && "hidden"
-        } mt-10 grid grid-cols-3 gap-10 overflow-scroll overflow-x-hidden px-10`}
+        } mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6`}
       >
         {dogs.map((dog: DogType) => {
           return <Dog dog={dog} key={dog.name} setFavorites={setFavorites} />;
