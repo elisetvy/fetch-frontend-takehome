@@ -1,4 +1,4 @@
-import { UserData, IDs, QueryParams } from "./interfaces";
+import { UserData, IDs, SearchParams } from "./interfaces";
 
 const BASE_API_URL = "https://frontend-take-home-service.fetch.com";
 
@@ -6,7 +6,6 @@ class Api {
   static token = null;
 
   /** Formats requests. */
-
   static async request(endpoint: string, data = {}, method = "GET") {
     const url = new URL(`${BASE_API_URL}/${endpoint}`);
     const headers = {
@@ -35,16 +34,14 @@ class Api {
     return await resp;
   }
 
-  /** Log in user. */
-
+  /** Logs in user. */
   static async login(userData: UserData) {
     const response = await this.request("auth/login", userData, "POST");
 
     return response;
   }
 
-  /** Invalidate auth cookie. */
-
+  /** Invalidates auth cookie. */
   static async logout() {
     const response = await this.request("auth/logout", {}, "POST");
 
@@ -52,7 +49,6 @@ class Api {
   }
 
   /** Returns array of possible breed names. */
-
   static async getBreeds() {
     const response = await this.request("dogs/breeds");
 
@@ -68,9 +64,9 @@ prev - a query to request the previous page of results (if one exists)
 
 The maximum total number of dogs that will be matched by a single query is 10,000. */
 
-  static async searchDogs(queryParams: QueryParams) {
+  static async searchDogs(searchParams: SearchParams) {
     const response = await this.request("dogs/search", {
-      ...queryParams,
+      ...searchParams,
       size: 24,
     });
 
@@ -78,15 +74,13 @@ The maximum total number of dogs that will be matched by a single query is 10,00
   }
 
   /** Returns array of dog objects. */
-
   static async fetchDogs(ids: IDs) {
     const response = await this.request("dogs", ids, "POST");
 
     return response.json();
   }
 
-  /** Returns 1 dog ID as a string. */
-
+  /** Returns 1 matched dog ID as a string. */
   static async getMatch(ids: IDs) {
     const response = await this.request("dogs/match", ids, "POST");
 
