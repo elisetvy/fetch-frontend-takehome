@@ -12,6 +12,7 @@ import Api from "../api";
 function Favorites({ favorites, setFavorites }: FavoritesProps) {
   const [dogs, setDogs] = useState<DogType[]>([]);
   const [match, setMatch] = useState<DogType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   /** Gets all favorited dogs from IDs array. */
   useEffect(() => {
@@ -19,6 +20,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
       try {
         const dogs = await Api.fetchDogs(JSON.parse(favorites));
         setDogs(dogs);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -51,21 +53,27 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
       <div className="flex-shrink-0 Lexend bg-purple text-slate-100 px-2 py-2 rounded-full w-full">
         <p className="font-bold text-center">Your Favorite Dogs</p>
       </div>
-      <div className="mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6">
-        {match ? (
-          <div className="col-start-2">
-            <Dog dog={match} setFavorites={setFavorites} />
-          </div>
-        ) : (
-          <>
-            {dogs.map((dog: DogType) => {
-              return (
-                <Dog dog={dog} key={dog.name} setFavorites={setFavorites} />
-              );
-            })}
-          </>
-        )}
-      </div>
+      {loading ? (
+        <div className="h-full flex justify-center items-center text-3xl font-bold text-purple">
+          Loading...
+        </div>
+      ) : (
+        <div className="mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6">
+          {match ? (
+            <div className="col-start-2">
+              <Dog dog={match} setFavorites={setFavorites} />
+            </div>
+          ) : (
+            <>
+              {dogs.map((dog: DogType) => {
+                return (
+                  <Dog dog={dog} key={dog.name} setFavorites={setFavorites} />
+                );
+              })}
+            </>
+          )}
+        </div>
+      )}
       <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
         {(!favorites || favorites == "[]") && (
           <div className="text-center">
