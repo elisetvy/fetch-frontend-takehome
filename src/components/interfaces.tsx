@@ -34,17 +34,6 @@ export interface DogProps {
   setFavorites: Dispatch<SetStateAction<string>>;
 }
 
-export interface FavoritesProps {
-  favorites: string;
-  setFavorites: Dispatch<SetStateAction<string>>;
-}
-
-export interface PaginationProps {
-  currentPage: number;
-  setCurrentPage: (number: number) => void;
-  totalDogs: number;
-}
-
 export interface SearchParams {
   breeds?: string[];
   zipCodes?: number[];
@@ -59,4 +48,15 @@ export interface SearchProps {
   breeds: string[];
   setFilters: Dispatch<SetStateAction<SearchParams>>;
   setCurrentPage: Dispatch<SetStateAction<number>>;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  setCurrentPage: (number: number) => void;
+  totalDogs: number;
+}
+
+export interface FavoritesProps {
+  favorites: string;
+  setFavorites: Dispatch<SetStateAction<string>>;
 }
