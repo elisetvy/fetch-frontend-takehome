@@ -60,6 +60,7 @@ function LogIn({ setCurrUser }: LogInProps) {
             value={userData.name}
             onChange={handleChange}
             type="text"
+            autoComplete="off"
           ></input>
         </div>
         <div className="grid grid-cols-6 gap-2 w-full">
@@ -74,6 +75,7 @@ function LogIn({ setCurrUser }: LogInProps) {
             value={userData.email}
             onChange={handleChange}
             type="email"
+            autoComplete="off"
           ></input>
         </div>
         {error && (
