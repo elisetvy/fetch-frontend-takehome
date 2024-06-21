@@ -57,7 +57,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![The Pawfect Match Screenshot][product-screenshot]]
 
 An application to explore adoptable dogs and find your Pawfect Match.
 
@@ -108,6 +108,7 @@ Elise Ngo - [LinkedIn](https://linkedin.com/en/elisengo) - elisetvy@gmail.com
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
+[product-screenshot]: assets/homepage-screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Typescript-lang]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
