@@ -43,8 +43,12 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
           className="bg-slate-100 text-purple rounded-xl px-2 py-1 border-r-8 border-slate-100 w-3/4 sm:w-fit"
         >
           <option value="all">All Breeds</option>
-          {breeds.map((breed: string) => {
-            return <option value={breed}>{breed}</option>;
+          {breeds.map((breed: string, index) => {
+            return (
+              <option value={breed} key={index}>
+                {breed}
+              </option>
+            );
           })}
         </select>
         <label htmlFor="sort" className="font-bold">
