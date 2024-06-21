@@ -53,7 +53,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -75,8 +74,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 - [![React][React.js]][React-url]
-- [![TypeScript][Typescript-lang]][TypeScript-url]
-- [![Tailwind][Tailwind-css.io]][Tailwind-url]
+- [![Typescript][Typescript-lang]][TypeScript-url]
+- [![Tailwind-css][Tailwind-css.io]][Tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,7 +85,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 To get a local version of The Pawfect Match up and running, do the following.
 
-### Installation and Setup
+### Installation
 
 1. Clone the repo
    ```sh
@@ -109,8 +108,6 @@ To get a local version of The Pawfect Match up and running, do the following.
 ## Contact
 
 Elise Ngo - [LinkedIn](https://linkedin.com/en/elisengo) - elisetvy@gmail.com
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
