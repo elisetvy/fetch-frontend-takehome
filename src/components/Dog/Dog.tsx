@@ -17,8 +17,8 @@ function Dog({ dog, setFavorites }: DogProps) {
     setFaves((prev: string[]) => {
       const updatedFaves = [...prev, id];
 
-      setFavorites(JSON.stringify(updatedFaves));
       sessionStorage.setItem("favorites", JSON.stringify(updatedFaves));
+      setFavorites(JSON.stringify(updatedFaves));
 
       return updatedFaves;
     });
