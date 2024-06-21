@@ -67,9 +67,9 @@ Users can filter dogs by breed and sort alphabetically. Users can add dogs to a 
 
 ### Built With
 
-- [![React][React.js]][React-url]
-- [![Typescript][Typescript-lang]][TypeScript-url]
-- [![Tailwind][Tailwind-css]][Tailwind-url]
+[![React][React.js]][React-url]
+[![Typescript][Typescript-lang]][TypeScript-url]
+[![Tailwind][Tailwind-css]][Tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
