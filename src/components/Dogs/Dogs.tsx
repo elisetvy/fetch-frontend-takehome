@@ -18,14 +18,14 @@ function Dogs({ setFavorites }: DogsProps) {
     sort: "breed:asc",
     from: 0,
   });
-  const [dogs, setDogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [dogs, setDogs] = useState<DogType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const [currentPage, setCurrentPage] = useState(1);
-
+  /** Gets all dogs on initial render and when filters change. */
   useEffect(() => {
     async function getDogs() {
-      // Get all breeds on initial render only
+      // Gets all breeds on initial render only
       if (!breeds.length) {
         const breeds = await Api.getBreeds();
         setBreeds(breeds);
@@ -48,6 +48,7 @@ function Dogs({ setFavorites }: DogsProps) {
     getDogs();
   }, [filters]);
 
+  /** Updates current page number and filters to trigger dogs rerender. */
   function changePage(newPage: number) {
     setCurrentPage(newPage);
     setFilters((prev) => ({
