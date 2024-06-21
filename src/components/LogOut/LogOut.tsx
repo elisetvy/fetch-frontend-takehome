@@ -2,7 +2,10 @@ import { LogInProps } from "../interfaces";
 
 import Api from "../api";
 
+/** Renders button to log user out. */
+
 function LogOut({ setCurrUser }: LogInProps) {
+  /** Clears session storage and removes current user from state. */
   async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
