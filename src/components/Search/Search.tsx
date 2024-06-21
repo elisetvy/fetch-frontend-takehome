@@ -1,5 +1,8 @@
 import { ChangeEvent } from "react";
+
 import { SearchParams, SearchProps } from "../interfaces";
+
+/** Allows user to filter dogs by breed and sort alphabetically. */
 
 function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
   function handleChange(e: ChangeEvent<HTMLSelectElement>) {
