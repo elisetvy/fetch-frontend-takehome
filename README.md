@@ -61,7 +61,7 @@
 
 An application to explore adoptable dogs and find your Pawfect Match.
 
-Users can filter dogs by breed and sort alphabetically. Users can add dogs to a favorites list, which will be used to determine their Pawfect Match.
+Filter dogs by breed and sort alphabetically. Add dogs to a favorites list to determine your Pawfect Match.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
