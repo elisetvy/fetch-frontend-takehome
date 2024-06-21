@@ -1,8 +1,8 @@
-import { AuthProps } from "../interfaces";
+import { LogInProps } from "../interfaces";
 
 import Api from "../api";
 
-function LogOut({ setCurrUser }: AuthProps) {
+function LogOut({ setCurrUser }: LogInProps) {
   async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
