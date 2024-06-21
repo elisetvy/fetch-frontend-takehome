@@ -89,32 +89,22 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local version of The Pawfect Match up and running, do the following.
 
-### Prerequisites
+### Installation and Setup
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/elisetvy/fetch-frontend-takehome.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
+   cd ./your-directory
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+3. Launch
+   ```sh
+   npm run dev -- --open
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -123,9 +113,9 @@ This is an example of how to list things you need to use the software and how to
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Elise Ngo - [LinkedIn](https://linkedin.com/en/elisengo) - elisetvy@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/elisetvy/fetch-frontend-takehome](https://github.com/elisetvy/fetch-frontend-takehome)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
