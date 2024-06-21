@@ -68,7 +68,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
         })}
       </div>
       <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
-        {(favorites === null || favorites === "[]") && (
+        {(favorites === null || favorites === "" || favorites == "[]") && (
           <div className="text-center">
             <p className="Lexend text-purple mt-10 text-center">
               You haven't favorited any dogs yet!
@@ -81,7 +81,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
           </div>
         )}
       </div>
-      {favorites !== null && (
+      {favorites && (
         <div className="empty:hidden mt-10 text-center">
           {JSON.parse(favorites).length !== 0 && (
             <div className="flex gap-4 justify-center">
