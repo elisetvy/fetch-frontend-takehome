@@ -10,7 +10,7 @@ export interface NavLinkProps {
   text: string;
 }
 
-export interface AuthProps {
+export interface LogInProps {
   setCurrUser: (user: string) => void;
 }
 

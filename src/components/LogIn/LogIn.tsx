@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { AuthProps } from "../interfaces";
+import { LogInProps } from "../interfaces";
 import Api from "../api";
 
-function LogIn({ setCurrUser }: AuthProps) {
+function LogIn({ setCurrUser }: LogInProps) {
   const initialUserData = {
     name: "",
     email: "",
