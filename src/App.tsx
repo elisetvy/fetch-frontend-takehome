@@ -40,7 +40,7 @@ function App() {
         <div className="max-h-screen col-span-2 px-10 py-10">
           <Routes>
             {currUser ? (
-              <>
+              <div>
                 <Route
                   path="/"
                   element={<Dogs setFavorites={setFavorites} />}
@@ -54,7 +54,7 @@ function App() {
                     />
                   }
                 />
-              </>
+              </div>
             ) : (
               <Route
                 path="/"
