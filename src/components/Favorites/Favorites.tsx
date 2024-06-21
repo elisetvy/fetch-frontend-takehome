@@ -7,10 +7,13 @@ import { Dog as DogType, FavoritesProps } from "../interfaces";
 
 import Api from "../api";
 
+/** Renders favorited dogs list. */
+
 function Favorites({ favorites, setFavorites }: FavoritesProps) {
-  const [dogs, setDogs] = useState([]);
+  const [dogs, setDogs] = useState<DogType[]>([]);
   const [match, setMatch] = useState<DogType | null>(null);
 
+  /** Gets all favorited dogs from IDs array. */
   useEffect(() => {
     async function getDogs() {
       try {
@@ -24,6 +27,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
     getDogs();
   }, []);
 
+  /** Gets match from IDs array. */
   async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
@@ -36,6 +40,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
     }
   }
 
+  /** Empties favorites ID array in state and sessionStorage. */
   function clearFavorites() {
     setFavorites("[]");
     sessionStorage.setItem("favorites", "[]");
@@ -62,7 +67,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
         )}
       </div>
       <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
-        {(favorites === null || favorites === "" || favorites == "[]") && (
+        {(!favorites || favorites == "[]") && (
           <div className="text-center">
             <p className="Lexend text-purple mt-10 text-center">
               You haven't favorited any dogs yet!
