@@ -1,4 +1,5 @@
 import { render } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 import Dog from "./Dog";
 
@@ -18,5 +19,12 @@ describe("Dog component", function () {
 
   test("Should render without crashing", function () {
     render(<Dog dog={testDog} setFavorites={mockSetFavorites} />);
+  });
+
+  test("Contains expected dog name", function () {
+    const result = render(
+      <Dog dog={testDog} setFavorites={mockSetFavorites} />
+    );
+    expect(result.queryByText("Test Dog")).toBeInTheDocument();
   });
 });
