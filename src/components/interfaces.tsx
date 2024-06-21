@@ -57,6 +57,6 @@ export interface SearchParams {
 
 export interface SearchProps {
   breeds: string[];
-  setFilters: Dispatch<SetStateAction<QueryParams>>;
+  setFilters: Dispatch<SetStateAction<SearchParams>>;
   setCurrentPage: Dispatch<SetStateAction<number>>;
 }
