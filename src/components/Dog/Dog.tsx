@@ -2,16 +2,19 @@ import { useState } from "react";
 
 import { DogProps } from "../interfaces";
 
+/** Renders dog card. */
+
 function Dog({ dog }: DogProps) {
-  const [faves, setFaves] = useState(() => {
+  const [faves, setFaves] = useState<string[]>(() => {
     const sessionFaves = sessionStorage.getItem("favorites");
     return sessionFaves ? JSON.parse(sessionFaves) : [];
   });
 
+  /** Adds dog ID to favorites array in sessionStorage. */
   function favoriteDog(e: React.MouseEvent<HTMLButtonElement>) {
     const id = e.currentTarget.value;
 
-    setFaves((prev: string) => {
+    setFaves((prev: string[]) => {
       const updatedFaves = [...prev, id];
 
       sessionStorage.setItem("favorites", JSON.stringify(updatedFaves));
