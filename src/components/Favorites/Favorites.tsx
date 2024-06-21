@@ -10,7 +10,6 @@ import Api from "../api";
 function Favorites({ favorites, setFavorites }: FavoritesProps) {
   const [dogs, setDogs] = useState([]);
   const [match, setMatch] = useState<DogType | null>(null);
-  const [matched, setMatched] = useState(false);
 
   useEffect(() => {
     async function getDogs() {
@@ -32,7 +31,6 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
       const match = await Api.getMatch(JSON.parse(favorites));
       const matchedDog = await Api.fetchDogs([match.match]);
       setMatch(matchedDog[0]);
-      setMatched(true);
     } catch (err) {
       console.log(err);
     }
@@ -48,24 +46,20 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
       <div className="flex-shrink-0 Lexend bg-purple text-slate-100 px-2 py-2 rounded-full w-full">
         <p className="font-bold text-center">Your Favorite Dogs</p>
       </div>
-      <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
-        {match && (
-          <div className="flex flex-col items-center mb-4">
+      <div className="mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6">
+        {match ? (
+          <div className="col-start-2">
             <Dog dog={match} />
-            <h1 className="text-3xl font-bold mt-10 text-purple">
-              {match.name} is your Pawfect Match!
-            </h1>
           </div>
+        ) : (
+          <>
+            {dogs.map((dog: DogType) => {
+              return (
+                <Dog dog={dog} key={dog.name} setFavorites={setFavorites} />
+              );
+            })}
+          </>
         )}
-      </div>
-      <div
-        className={`empty:hidden ${
-          matched === true && "hidden"
-        } mt-10 grid grid-cols-3 gap-6 overflow-scroll overflow-x-hidden px-6`}
-      >
-        {dogs.map((dog: DogType) => {
-          return <Dog dog={dog} key={dog.name} setFavorites={setFavorites} />;
-        })}
       </div>
       <div className="empty:hidden flex-grow flex justify-center items-center mt-10 text-center">
         {(favorites === null || favorites === "" || favorites == "[]") && (
@@ -82,7 +76,7 @@ function Favorites({ favorites, setFavorites }: FavoritesProps) {
         )}
       </div>
       {favorites && (
-        <div className="empty:hidden mt-10 text-center">
+        <div className="empty:hidden mt-10 text-center flex-shrink-0">
           {JSON.parse(favorites).length !== 0 && (
             <div className="flex gap-4 justify-center">
               <button
