@@ -5,6 +5,7 @@ import { SearchParams, SearchProps } from "../interfaces";
 /** Allows user to filter dogs by breed and sort alphabetically. */
 
 function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
+  /** Updates filters with user's choice(s) and resets current page to 1. */
   function handleChange(e: ChangeEvent<HTMLSelectElement>) {
     const { name, value } = e.target;
 
@@ -34,7 +35,7 @@ function Search({ breeds, setFilters, setCurrentPage }: SearchProps) {
   }
 
   return (
-    <div className="">
+    <div>
       <form className="Lexend bg-purple text-slate-100 px-2 py-2 rounded-full w-full flex flex-col items-center gap-2 sm:flex-row justify-end">
         <label htmlFor="breeds" className="font-bold">
           Breed
