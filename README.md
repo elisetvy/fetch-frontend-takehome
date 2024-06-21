@@ -75,7 +75,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 - [![React][React.js]][React-url]
 - [![Typescript][Typescript-lang]][TypeScript-url]
-- [![Tailwind-css][Tailwind-css.io]][Tailwind-url]
+- [![Tailwind][Tailwind-css.io]][Tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
