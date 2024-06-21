@@ -27,10 +27,12 @@ function Pagination({
     pages.push(i);
   }
 
+  /** Go back 1 increment of pages. */
   function decrement() {
     setCurrentPage(startingPage + 1 - BUTTONS_PER_PAGE);
   }
 
+  /** Go forward 1 increment of pages. */
   function increment() {
     setCurrentPage(startingPage + 1 + BUTTONS_PER_PAGE);
   }
